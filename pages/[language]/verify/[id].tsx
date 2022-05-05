@@ -4,7 +4,7 @@ import Image from "next/image";
 import CategoryCard from "../../../src/components/cards/CategoryCard";
 import EasyCard from "../../../src/components/cards/EasyCard";
 import ServiceCard from "../../../src/components/cards/ServiceCard";
-import Navbar from "../../../src/components/header/Navbar";
+import Navbar from "../../../src/components/header/Navbar2";
 import Topbar from "../../../src/components/header/Topbar";
 import Heading from "../../../src/components/headings/Heading";
 import Footer from "../../../src/components/footer/Footer";
@@ -24,10 +24,10 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className=" ">
-        <Topbar />
-        <Navbar />
+         <Navbar />
       </div>
-      <div className="signupscreen1">
+    <div className="mt-250">
+    <div className="signupscreen1 mt-10">
         <section className="container-2">
           <div className="images-2">
             <img src="assets\images\gallery-2-removebg-preview.png" alt="" />
@@ -67,6 +67,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </div>
+    </div>
 
       <Footer />
     </div>

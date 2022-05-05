@@ -5,7 +5,7 @@ import Image from "next/image";
 import CategoryCard from "../../../../src/components/cards/CategoryCard";
 import EasyCard from "../../../../src/components/cards/EasyCard";
 import ServiceCard from "../../../../src/components/cards/ServiceCard";
-import Navbar from "../../../../src/components/header/Navbar";
+import Navbar from "../../../../src/components/header/Navbar2";
 import Topbar from "../../../../src/components/header/Topbar";
 import Heading from "../../../../src/components/headings/Heading";
 import Footer from "../../../../src/components/footer/Footer";
@@ -47,12 +47,12 @@ import { AddBookings } from "../../../../src/functions/Booking";
   return (
     <div>
       <div className=" ">
-        <Topbar />
-        <Navbar />
+         <Navbar />
       </div>
 
-      <section className="container mt-5 mb-5">
-        <h1 className="text-center">Date & Time</h1>
+      <section className="container mt-10 mb-5">
+        <div className="main-heading">        <h1 className="">Date & Time</h1>
+ </div>
         <div className="row">
           <div className="col-md-8">
             <div className="card p-4">

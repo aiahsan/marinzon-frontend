@@ -5,7 +5,7 @@ import Image from "next/image";
 import CategoryCard from "../../../src/components/cards/CategoryCard";
 import EasyCard from "../../../src/components/cards/EasyCard";
 import ServiceCard from "../../../src/components/cards/ServiceCard";
-import Navbar from "../../../src/components/header/Navbar";
+import Navbar from "../../../src/components/header/Navbar2";
 import Topbar from "../../../src/components/header/Topbar";
 import Heading from "../../../src/components/headings/Heading";
 import Footer from "../../../src/components/footer/Footer";
@@ -91,11 +91,10 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className=" ">
-        <Topbar />
-        <Navbar />
+         <Navbar />
       </div>
 
-      <section className="container mt-5 mb-5">
+      <section className="container  mb-5 mt-10">
         <Heading center title={_item?.title} subtitle={_item?.description} />
       </section>
 

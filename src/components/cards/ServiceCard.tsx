@@ -23,7 +23,7 @@ const App = ({ data, bg }: { data: IService; bg: String }) => {
           <h1>{data?.title}</h1>
           <h5>{data?.description}</h5>
         </div>
-        <div>
+        <div className="njnads-sner">
           <img src={ImageUrl + data?.image} />
         </div>
       </div>

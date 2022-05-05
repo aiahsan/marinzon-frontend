@@ -5,7 +5,7 @@ import Image from "next/image";
 import CategoryCard from "../../../src/components/cards/CategoryCard";
 import EasyCard from "../../../src/components/cards/EasyCard";
 import ServiceCard from "../../../src/components/cards/ServiceCard";
-import Navbar from "../../../src/components/header/Navbar";
+import Navbar from "../../../src/components/header/Navbar2";
 import Topbar from "../../../src/components/header/Topbar";
 import Heading from "../../../src/components/headings/Heading";
 import Footer from "../../../src/components/footer/Footer";
@@ -65,11 +65,12 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className=" ">
-        <Topbar />
-        <Navbar />
+         <Navbar />
       </div>
-
-      <section className="service-sec container mt-10">
+      <div className="container d-flex mt-10 justify-content-center">
+        <Searchbar />
+      </div>
+      <section className="service-sec container mt-5">
         <Heading
           center
           title={intl.formatMessage({ id: "ar9" })}
@@ -78,15 +79,13 @@ const Home: NextPage = () => {
         <div className="row m-0 top-loc-2">
           {services.map((x) => (
             <div className="mb-3 mx-1">
-              <ServiceCard bg="#e6e6e6" data={x} />
+              <ServiceCard bg="white" data={x} />
             </div>
           ))}
         </div>
       </section>
 
-      <div className="container d-flex mt-10 justify-content-center">
-        <Searchbar />
-      </div>
+     
       <div className="container  mb-5">
         <div className="row mt-5">
           <div className="col-md-3 mt-5 rd-brd">

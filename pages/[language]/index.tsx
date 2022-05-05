@@ -6,19 +6,20 @@ import Image from "next/image";
 import CategoryCard from "../../src/components/cards/CategoryCard";
 import EasyCard from "../../src/components/cards/EasyCard";
 import ServiceCard from "../../src/components/cards/ServiceCard";
-import Navbar from "../../src/components/header/Navbar";
+import Navbar from "../../src/components/header/Navbar2";
+import Navbar1 from "../../src/components/header/Navbar";
 import Topbar from "../../src/components/header/Topbar";
 import Heading from "../../src/components/headings/Heading";
 import Footer from "../../src/components/footer/Footer";
 import { useIntl } from "react-intl";
 import { useRouter } from "next/router";
-
+import HomeCard from '../../src/components/cards/homeCard'
 import styles from "../../styles/Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetServices } from "../../src/functions/Services";
 import { IReduxStore } from "../../src/interfaces/data/reduxStore";
-import { ImageUrl } from "../../src/utiles/baseUrl";
-
+ import {GiCalendar, GiSailboat} from 'react-icons/gi'
+ import {ImHappy} from 'react-icons/im'
 const Home: NextPage = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
@@ -33,82 +34,19 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className=" ">
-        <Topbar />
-        <Navbar />
+    
 
-        <div className="row m-0 w-100 overlay-box top-inner-box">
-          <div className="col-12 m-0 w-100 p-0">
-            <div className="image-text-overlay text-middle-left text-white">
-              <div className="container">
-                <div className="inner-overlay-text">
-                  <p>
-                    <span className="overlay-title text-big">
-                      {intl.formatMessage({ id: "en9" })}
-                    </span>
-                    <br></br>
-                    <span className="overlay-title">
-                      {intl.formatMessage({ id: "en10" })}
-                    </span>
-                    <br></br>
-                    <span className="overlay-subtext">
-                      {intl.formatMessage({ id: "en11" })}
-                    </span>
-                  </p>
-                  <button className="btn btn-primary">
-                    {intl.formatMessage({ id: "en12" })}
-                  </button>
-                </div>
-              </div>
-              <div className="overlay-black"></div>
-            </div>
-          </div>
+      <Navbar />
+
+      </div>
+      <div className="kjoca-asejnwi23">
+        <h3 className="text-main-head">Find your next Booking</h3>
+        <div className="kfasd-neir">
+          <HomeCard isCenter={false} icon={()=><GiSailboat className="mb-2" color="#f5b913" size={34} />} title="Select Service" description="Lorem ipsum is a placeholder text commonly used"/>
+          <HomeCard isCenter={true} icon={()=><GiCalendar className="mb-2" color="#f5b913" size={34} />} title="Place your Booking" description="Lorem ipsum is a placeholder text commonly used"/>
+          <HomeCard isCenter={false} icon={()=><ImHappy className="mb-2" color="#f5b913" size={34} />} title="Enjoy" description="Lorem ipsum is a placeholder text commonly used"/>
         </div>
       </div>
-      <section className="container">
-        <Heading
-          title={intl.formatMessage({ id: "ar1" })}
-          subtitle={intl.formatMessage({ id: "ar2" })}
-        />
-        <div className="row m-0">
-          <div className="d-flex top-loc-1 mt-5">
-            <div className="w-100 mx-2">
-              <CategoryCard
-                title={intl.formatMessage({ id: "ar3" })}
-                backgroundImage="bg.jpg"
-              />
-            </div>
-            <div className="w-100 mx-2">
-              <CategoryCard
-                title={intl.formatMessage({ id: "ar4" })}
-                backgroundImage="bg1.jpg"
-              />
-            </div>
-          </div>
-          <div className="d-flex top-loc-2">
-            <div className="w-100 mx-2">
-              <CategoryCard
-                type="sm"
-                title={intl.formatMessage({ id: "ar5" })}
-                backgroundImage="bg3.jpg"
-              />
-            </div>
-            <div className="w-100 mx-2">
-              <CategoryCard
-                type="sm"
-                title={intl.formatMessage({ id: "ar6" })}
-                backgroundImage="bg2.jpg"
-              />
-            </div>
-            <div className="w-100 mx-2">
-              <CategoryCard
-                type="sm"
-                title={intl.formatMessage({ id: "ar7" })}
-                backgroundImage="bg5.jpg"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
       <section className="service-sec container mt-10">
         <Heading
           center
@@ -118,7 +56,7 @@ const Home: NextPage = () => {
         <div className="row m-0 top-loc-2">
           {services.map((x) => (
             <div className="mb-3 mx-1">
-              <ServiceCard bg="#e6e6e6" data={x} />
+              <ServiceCard bg="white" data={x} />
             </div>
           ))}
         </div>
