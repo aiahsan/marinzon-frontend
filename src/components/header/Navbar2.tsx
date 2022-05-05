@@ -58,7 +58,7 @@ export default () => {
                       <li className="mega-drop-down">
                         <div className="nav-span-box">
                           <BiCategoryAlt color="white" size={22} />
-                          <h5>Services</h5>
+                          <h5>Categories</h5>
                         </div>
                         <div className="animated fadeIn mega-menu">
                           <div className="mega-menu-wrap">
@@ -111,7 +111,11 @@ export default () => {
                       </li>
                     </ul>
                   </div>
-                  <Nav.Link href="#action1">Blogs</Nav.Link>
+                  <Nav.Link   onClick={() => {
+                      language != undefined
+                      ? router.push("/" + Language + "/services")
+                      : router.push("/en-AE/services");
+                    }}>Services</Nav.Link>
 
                   <div className="topSearchbar">
                     <div className="w-100">

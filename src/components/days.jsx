@@ -25,7 +25,7 @@ export default ({ _setSdatecst})=>{
     loop={false}
     margin={10}
     onClick={(e)=>e.preventDefault()}
-    nav={false}
+    nav={true}
     dots={false}
     responsive={{
       0: {
