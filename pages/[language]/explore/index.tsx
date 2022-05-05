@@ -1,4 +1,4 @@
-import Explore from './[id]'
+import Explore1 from './[id]'
 export default ()=>{
-    return <Explore/>
+    return <Explore1/>
 }
