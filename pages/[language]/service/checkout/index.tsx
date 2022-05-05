@@ -1,4 +1,10 @@
 import Service from './[id]'
-export default ()=>{
-    return <Service/>
+ import type { AppProps } from 'next/app';
+
+const Home= ( )=>{
+     return <Service  />
 }
+
+
+export default Home;
+ 
