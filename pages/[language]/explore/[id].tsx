@@ -60,6 +60,7 @@ const Home: NextPage = () => {
    
   }, [router.query]);
   React.useEffect(()=>{
+    console.log(categoreis);
     if(ITEMS.length>0)
     {
       if(categoreis.length<=0)

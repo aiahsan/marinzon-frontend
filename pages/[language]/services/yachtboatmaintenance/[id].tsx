@@ -66,7 +66,7 @@ const Home: NextPage = () => {
   }, [_filters]);
   return (
     <div>
-      <div className=" ">
+      <div className="aflex">
         <Navbar />
       </div>
       <div className="container">
@@ -105,10 +105,17 @@ enjoyment and peace of mind.
           />
        </div>
      
-       <div className="row">
+
+     <div className="sndl0we-ok">
+
+
+
+
+       
+     <div className="row">
        <section className="col-md-6 service-sec container mt-5 ">
          <div className=" w-100">
-          <div className="  ">
+          <div className="aflex">
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
 
           <Heading
@@ -122,7 +129,7 @@ enjoyment and peace of mind.
         </section>
         <section className="service-sec container mt-5 col-md-6 ">
          <div className=" w-100">
-          <div className="  ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"AIR CONDITIONING"}
@@ -137,7 +144,7 @@ enjoyment and peace of mind.
        <div className="row">
        <section className="col-md-6  service-sec container mt-5">
          <div className="w-100">
-          <div className=" ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -151,7 +158,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className="">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"GPS/SONAR AND VHF"}
@@ -166,7 +173,7 @@ enjoyment and peace of mind.
        <div className="row">
        <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className=" ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -180,7 +187,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className=" ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"SEA CHEST"}
@@ -195,7 +202,7 @@ enjoyment and peace of mind.
        <div className="row">
         <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className="  ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -209,7 +216,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className=" ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"TOILET REPAIRS"}
@@ -223,7 +230,7 @@ enjoyment and peace of mind.
        <div className="row">
         <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className=" ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -237,7 +244,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className="  ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"Pest Control"}
@@ -251,7 +258,7 @@ enjoyment and peace of mind.
        <div className="row">   
         <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className="   ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -263,9 +270,10 @@ enjoyment and peace of mind.
            
         </section>
        </div>
+     </div>
       
        
-
+      <div className="sndl0we-ok">
        <div className="mt-5">
        <Heading
             title={""}
@@ -276,7 +284,7 @@ enjoyment and peace of mind.
        <div className="row">
        <section className="col-md-6 service-sec container mt-5 ">
          <div className=" w-100">
-          <div className="  ">
+          <div className="aflex">
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
 
           <Heading
@@ -290,7 +298,7 @@ enjoyment and peace of mind.
         </section>
         <section className="service-sec container mt-5 col-md-6 ">
          <div className=" w-100">
-          <div className="  ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"ENGINE REGULAR SERVICE"}
@@ -305,7 +313,7 @@ enjoyment and peace of mind.
        <div className="row">
        <section className="col-md-6  service-sec container mt-5">
          <div className="w-100">
-          <div className=" ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -319,7 +327,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className="">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"HYDRAULICS RELATED SERVICES"}
@@ -334,7 +342,7 @@ enjoyment and peace of mind.
        <div className="row">
        <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className=" ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -348,7 +356,7 @@ enjoyment and peace of mind.
        
         <section className="col-md-6 service-sec container mt-5">
          <div className=" w-100">
-          <div className=" ">
+          <div className="aflex">
           <Heading
             title={"Marinzon"}
             subtitle={"BOAT TRAILER MAINTENANCE"}
@@ -363,7 +371,7 @@ enjoyment and peace of mind.
        <div className="row">
         <section className="col-md-6 service-sec container mt-5">
          <div className="w-100">
-          <div className="  ">
+          <div className="aflex">
          
           <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
           <Heading
@@ -376,7 +384,7 @@ enjoyment and peace of mind.
         </section>
       
        </div>
-    
+      </div>
         <div className="mt-5 kmcmsd-emk4e">
           <Heading
             title={intl.formatMessage({ id: "ar9" })}

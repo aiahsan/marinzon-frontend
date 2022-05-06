@@ -40,14 +40,14 @@ const Home: NextPage = () => {
         <Navbar />
       </div>
       <div className="container">
-        <section className="service-sec container mt-10">
+        <section className="service-sec container mt-10 ">
           <Heading
             center
             title={intl.formatMessage({ id: "ar9" })}
             subtitle={"ABOUT COMPANY"}
           />
         </section>
-        <div className="d-flex">
+        <div className="d-flex cdankser0eaw">
           <img className="sdnfkdsf-sdsf" src="/bgmaincst2.jpg" />
           <div className="kmcmsd-emk4e mx-5">
             <p>
@@ -73,7 +73,7 @@ const Home: NextPage = () => {
             </p>
           </div>
         </div>
-
+        <div className="sndl0we-ok">
         <section className="service-sec container mt-5">
           <Heading
             center
@@ -192,13 +192,14 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
+        </div>
         <div className="mt-5 kmcmsd-emk4e">
           <Heading
             title={"Marinzon Office"}
             subtitle={"WHERE YOU’LL FIND US "}
           />
 
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="cdankser0eaw d-flex justify-content-between align-items-center">
           <div className="knacvds-je w-50">
           <ul style={{ listStyle: "none"}}>
             <li>

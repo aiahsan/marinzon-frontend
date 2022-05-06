@@ -66,7 +66,7 @@ const Home: NextPage = () => {
   }, [_filters]);
   return (
     <div>
-      <div className=" ">
+      <div className="aflex">
         <Navbar />
       </div>
       <div className="container">
@@ -107,11 +107,11 @@ const Home: NextPage = () => {
         <div className="mt-5">
           <Heading title={""} subtitle={"YACHT/BOAT FOR CHARTER "} />
         </div>
-
+        <div className="sndl0we-ok">
         <div className="row">
           <section className="col-md-6 service-sec container mt-5 ">
             <div className=" w-100">
-              <div className="  ">
+              <div className="aflex">
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
 
                 <Heading title={"Marinzon"} subtitle={"YACHT RENTAL"} />
@@ -120,7 +120,7 @@ const Home: NextPage = () => {
           </section>
           <section className="service-sec container mt-5 col-md-6 ">
             <div className=" w-100">
-              <div className="  ">
+              <div className="aflex">
                 <Heading title={"Marinzon"} subtitle={"JETSKI RENTAL"} />
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
               </div>
@@ -130,7 +130,7 @@ const Home: NextPage = () => {
         <div className="row">
           <section className="col-md-6  service-sec container mt-5">
             <div className="w-100">
-              <div className=" ">
+              <div className="aflex">
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
                 <Heading title={"Marinzon"} subtitle={"KITE RENTAL"} />
               </div>
@@ -139,17 +139,17 @@ const Home: NextPage = () => {
 
           <section className="col-md-6 service-sec container mt-5">
             <div className=" w-100">
-              <div className="">
+              <div className="aflex">
                 <Heading title={"Marinzon"} subtitle={"SMALL BOAT RENTAL"} />
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
               </div>
             </div>
           </section>
-        </div>
+        </div>  
         <div className="row">
           <section className="col-md-6 service-sec container mt-5">
             <div className="w-100">
-              <div className=" ">
+              <div className="aflex">
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
                 <Heading title={"Marinzon"} subtitle={"KAYAK"} />
               </div>
@@ -158,7 +158,7 @@ const Home: NextPage = () => {
 
           <section className="col-md-6 service-sec container mt-5">
             <div className=" w-100">
-              <div className=" ">
+              <div className="aflex">
                 <Heading title={"Marinzon"} subtitle={"SHARK RENTAL"} />
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
               </div>
@@ -168,7 +168,7 @@ const Home: NextPage = () => {
         <div className="row">
           <section className="col-md-6 service-sec container mt-5">
             <div className="w-100">
-              <div className="  ">
+              <div className="aflex">
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
                 <Heading title={"Marinzon"} subtitle={"BANANA BOAT"} />
               </div>
@@ -177,7 +177,7 @@ const Home: NextPage = () => {
 
           <section className="col-md-6 service-sec container mt-5">
             <div className=" w-100">
-              <div className=" ">
+              <div className="aflex">
                 <Heading title={"Marinzon"} subtitle={"RTA ABRA"} />
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
               </div>
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
         <div className="row">
           <section className="col-md-6 service-sec container mt-5">
             <div className="w-100">
-              <div className=" ">
+              <div className="aflex">
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
                 <Heading
                   title={"Marinzon"}
@@ -199,14 +199,14 @@ const Home: NextPage = () => {
 
           <section className="col-md-6 service-sec container mt-5">
             <div className=" w-100">
-              <div className="  ">
+              <div className="aflex">
                 <Heading title={"Marinzon"} subtitle={"SPEAD BOATS"} />
                 <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
               </div>
             </div>
           </section>
         </div>
-
+    </div>
         <div className="mt-5">
           <Heading
             title={""}

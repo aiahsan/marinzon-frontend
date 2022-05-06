@@ -22,7 +22,7 @@ export default ({ _setSdatecst})=>{
          setdays(items);
  
       }, []);
-      return <div className='kncsdoaewk-ewkew'>
+      return <div className='kncsdoaewk-ewkew w-100'>
       <div className='jkdsfs-je'>
       {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
 <button

@@ -101,6 +101,8 @@ is short and you need everything amazing on your yacht.
           </div>
           <p>Marinzon is known for its world-class services in UAE for the marine industry. We utilize extraordinary cleaning materials; specialists and all our practices has been utilized and endorsed in the marine industry.</p>
         </div>
+        
+        <div className="sndl0we-ok">
         <section className="service-sec container mt-5">
          <div className=" w-100">
           <div className="d-flex justify-content-between  ">
@@ -254,6 +256,7 @@ is short and you need everything amazing on your yacht.
            </div>
            
         </section>
+        </div>
        
         <div className="mt-5 kmcmsd-emk4e">
           <Heading

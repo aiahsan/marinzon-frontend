@@ -19,11 +19,15 @@ import { IReduxStore } from "../../interfaces/data/reduxStore";
 import router, { useRouter } from "next/router";
 import { LogOutAction } from "../../redux/actionMethodes/user/idnex";
 import { Dropdown } from "react-bootstrap";
-
+import { useMediaQuery } from 'react-responsive'
+import CategoryAccordian from '../../components/generic/CategoryAccordian'
 let expand = "xl";
 const LogoImage = require("../../images/smlogo.png");
 
 export default () => {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(max-width: 1199px)'
+  })
   const intl = useIntl();
   const { language } = router.query;
   const Language = useSelector((x) => x.Language);
@@ -37,7 +41,11 @@ export default () => {
       <div className="mb-5 nav-bar-2">
         <Navbar key={expand} bg="" expand={expand} fixed="top" className="mb-3">
           <Container fluid>
-            <Navbar.Brand href="/">
+            <Navbar.Brand onClick={()=>{
+                     language != undefined
+                     ? router.push("/" + Language )
+                     : router.push("/en-AE");
+                  }}>
               <Image src={LogoImage} className="logo-img" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
@@ -52,8 +60,9 @@ export default () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-                <div className="d-flex w-100 align-items-center justify-content-between">
-                  <div className="">
+              <div className="d-flex w-100 align-items-center justify-content-between ksan-2enj23">
+                  
+              <div className="sdmkasd-wew">
                     <ul className="exo-menu">
                       <li className="mega-drop-down">
                         <div className="nav-span-box">
@@ -117,6 +126,8 @@ export default () => {
                       </li>
                     </ul>
                   </div>
+                  
+                  <>
                   <Nav.Link   onClick={() => {
                       language != undefined
                       ? router.push("/" + Language + "/services")
@@ -191,7 +202,9 @@ export default () => {
                       </Dropdown.Menu>
                     </Dropdown>
                   </div>
+                  </>
                 </div>
+              
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
