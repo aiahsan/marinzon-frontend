@@ -26,7 +26,7 @@ const App = ({ Component, pageProps }) => {
     {
       setTimeout(() => {
         dispatch(messageAction());
-      }, 3000);
+      }, 6000);
     }
   },[Message])
   useEffect(() => {

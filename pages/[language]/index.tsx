@@ -20,6 +20,7 @@ import { GetServices } from "../../src/functions/Services";
 import { IReduxStore } from "../../src/interfaces/data/reduxStore";
  import {GiCalendar, GiSailboat} from 'react-icons/gi'
  import {ImHappy} from 'react-icons/im'
+import { getRouteName } from "./services/[id]";
 const Home: NextPage = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
@@ -54,9 +55,9 @@ const Home: NextPage = () => {
           subtitle={intl.formatMessage({ id: "ar10" })}
         />
         <div className="row m-0 top-loc-2">
-          {services.map((x) => (
+          {services.map((x,i) => (
             <div className="mb-3 mx-1">
-              <ServiceCard bg="white" data={x} />
+              <ServiceCard onClick={getRouteName(i+1)} bg="white" data={x} />
             </div>
           ))}
         </div>
@@ -131,21 +132,21 @@ const Home: NextPage = () => {
             </div>
 
             <div className="row m-0">
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <EasyCard
                   img="b1.svg"
                   title={intl.formatMessage({ id: "al17" })}
                   para={intl.formatMessage({ id: "al18" })}
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-6">
                 <EasyCard
                   img="b2.svg"
                   title={intl.formatMessage({ id: "al19" })}
                   para={intl.formatMessage({ id: "al20" })}
                 />
               </div>
-              <div className="col-md-4">
+              <div className="col-md-12">
                 <EasyCard
                   img="b3.svg"
                   title={intl.formatMessage({ id: "al21" })}

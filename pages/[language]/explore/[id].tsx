@@ -23,11 +23,14 @@ import {
   GetItemsByServiceID,
 } from "../../../src/functions/Items";
 import { GetServices } from "../../../src/functions/Services";
+import { GetCategory } from "../../../src/functions/Categories";
 
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
   const services = useSelector((x: IReduxStore) => x.Services);
+  const categoreis = useSelector((x: IReduxStore) => x.Categories);
+  const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
 
   const dispatch = useDispatch();
   const [_filters, _setfilters] = React.useState({
@@ -37,31 +40,52 @@ const Home: NextPage = () => {
 
   React.useEffect(() => {
     if (router.query?.dataqurey) {
+      let idGet=parseInt(
+        router.query?.dataqurey
+          ?.replaceAll("-", " ")
+          ?.toLowerCase()
+          ?.split(" ")
+          ?.pop()
+      );
+      dispatch(GetItemsByCategoryID(idGet));
+
       //@ts-ignore
       _setfilters({
         ..._filters,
-        categoryId: undefined,
-        serviceId: parseInt(
-          router.query?.dataqurey
-            ?.replaceAll("-", " ")
-            ?.toLowerCase()
-            ?.split(" ")
-            ?.pop()
-        ),
+        categoryId: idGet,
+        serviceId:undefined ,
       });
     }
-    //@ts-ignore
-    dispatch(GetServices());
+     
+   
   }, [router.query]);
-  React.useEffect(() => {
-    if (_filters.categoryId != undefined) {
-      //@ts-ignore
-      dispatch(GetItemsByCategoryID(_filters.categoryId));
-    } else if (_filters.serviceId != undefined) {
-      //@ts-ignore
-      dispatch(GetItemsByServiceID(_filters.serviceId));
+  React.useEffect(()=>{
+    if(ITEMS.length>0)
+    {
+      if(categoreis.length<=0)
+      {
+        dispatch(GetCategory())
+  
+      }
+      if(services.length<=0)
+      {
+        dispatch(GetServices());
+  
+      }
     }
-  }, [_filters]);
+  },[ITEMS])
+  // React.useEffect(() => {
+  //   if (_filters.categoryId != undefined) {
+  //     //@ts-ignore
+  //     dispatch(GetItemsByCategoryID(_filters.categoryId));
+  //   } else if (_filters.serviceId != undefined) {
+  //     //@ts-ignore
+  //     dispatch(GetItemsByServiceID(_filters.serviceId));
+  //   }
+  // }, [_filters]);
+
+  React.useEffect(()=>{
+  },[])
   return (
     <div>
       <div className=" ">
@@ -70,7 +94,7 @@ const Home: NextPage = () => {
       <div className="container d-flex mt-10 justify-content-center">
         <Searchbar />
       </div>
-      <section className="service-sec container mt-5">
+      {/* <section className="service-sec container mt-5">
         <Heading
           center
           title={intl.formatMessage({ id: "ar9" })}
@@ -83,7 +107,7 @@ const Home: NextPage = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
      
       <div className="container  mb-5">

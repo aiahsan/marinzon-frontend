@@ -17,6 +17,8 @@ export interface ICategory extends IBase {
   title: string;
   description: string;
   service?: IService;
+  items?:IItem[];
+
 }
 export interface IService extends IBase {
   id?: number | undefined;

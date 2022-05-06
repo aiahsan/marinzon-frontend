@@ -84,15 +84,21 @@ export default () => {
                                 currentS!=undefined?<>
                                 <div className="col-md-4 d-flex flex-column">
                                 <h5>Categories</h5>
-                                {currentS?.categories?.map((x) => (
+                                {currentS?.categories?.map((data) => (
                                   <p
                                     onClick={() => {
- 
+                                      language != undefined
+                                      ? router.push({pathname:Language != undefined ? "/"+Language + "/explore" : "/en-AE/explore",query:{
+                                        dataqurey:(data?.title+" "+data?.id).replaceAll(' ', '-').toLowerCase()
+                                    }})
+                                      : router.push({pathname:"/en-AE/explore",query:{
+                                        dataqurey:(data?.title+" "+data?.id).replaceAll(' ', '-').toLowerCase()
+                                    }});
                                     }}
                                     onMouseEnter={() => {
                                       }}
                                   >
-                                    {x.title}
+                                    {data.title}
                                   </p>
                                 ))}
                               </div>
@@ -129,7 +135,11 @@ export default () => {
                     </div>
                   </div>
                   <Nav.Link href="#action1">Contact Us</Nav.Link>
-                  <Nav.Link href="#action1">About Us</Nav.Link>
+                  <Nav.Link onClick={()=>{
+                     language != undefined
+                     ? router.push("/" + Language + "/about")
+                     : router.push("/en-AE/about");
+                  }}>About Us</Nav.Link>
                   <Nav.Link
                     onClick={() => {
                       if (User != null) {

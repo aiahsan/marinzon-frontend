@@ -1477,3 +1477,35 @@ justify-content: space-between;
       max-width: 500px;
       border-radius: 10px;
     }
+    .jkdsfs-je{
+      width: 100%;
+      max-width: 700px;
+      overflow: auto;
+      display: flex;
+    }
+
+
+  .kncsdoaewk-ewkew  ::-webkit-scrollbar {
+      
+      height: 5px;
+      cursor: pointer;
+    }
+    
+    /* Track */
+    .kncsdoaewk-ewkew  ::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+    }
+     
+    /* Handle */
+    .kncsdoaewk-ewkew  ::-webkit-scrollbar-thumb {
+      background: #f5b913; 
+    }
+    
+    /* Handle on hover */
+    .kncsdoaewk-ewkew  ::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+    .knacvds-je
+    {list-style: none;
+      max-width: 500px;
+      width: 100%;}

@@ -20,42 +20,49 @@ export default ({ _setSdatecst})=>{
          setdays(_.sortBy(res));
  
       }, []);
-    return     <OwlCarousel
-    className='owl-theme banner-carousel'
-    loop={false}
-    margin={10}
-    onClick={(e)=>e.preventDefault()}
-    nav={true}
-    dots={false}
-    responsive={{
-      0: {
-        items: 5,
-      },
-      600: {
-        items: 7,
-      },
-      1000: {
-        items: 10,
-      },
-    }}
-  >
 
-  {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
-                        <p>{moment(x).format("ddd")}</p>
-                        <button
-                          onClick={() => {
-                             _setSdate(x);
-                             _setSdatecst(x);
-                          }}
-                          className={`${
-                            x == _sDate ? "act" : ""
-                          } ndsfnosp-erf`}
-                        >
-                          {moment(x).format("DD")}
-                        </button>
-                      </div>)}
+      return <div className='kncsdoaewk-ewkew'>
+        <div className='jkdsfs-je'>
+        {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
+                            <p>{moment(x).format("ddd")}</p>
+                            <button
+                              onClick={() => {
+                                 _setSdate(x);
+                                 _setSdatecst(x);
+                              }}
+                              className={`${
+                                x == _sDate ? "act" : ""
+                              } ndsfnosp-erf`}
+                            >
+                              {moment(x).format("DD")}
+                            </button>
+                          </div>)}
+      </div>
+      
+      </div>
+    
+  //   return     <OwlCarousel
+  //   className='owl-theme banner-carousel'
+  //   loop={false}
+  //   margin={10}
+  //   onClick={(e)=>e.preventDefault()}
+  //   nav={true}
+  //   dots={false}
+  //   responsive={{
+  //     0: {
+  //       items: 5,
+  //     },
+  //     600: {
+  //       items: 7,
+  //     },
+  //     1000: {
+  //       items: 10,
+  //     },
+  //   }}
+  // >
+
 
     
     
-  </OwlCarousel>
+  // </OwlCarousel>
 }

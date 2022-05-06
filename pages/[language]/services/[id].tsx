@@ -26,7 +26,7 @@ import { GetServices } from "../../../src/functions/Services";
 import Indqure from "../../../src/components/forms/indqure";
 import Contactus from "../../../src/components/forms/contactus";
 import { castArray } from "lodash";
-const getRouteName=(name:number)=>{
+export const getRouteName=(name:number)=>{
   switch(name)
   {
     case 1:{

@@ -118,22 +118,55 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                 className="btn btn-primary"
                 onClick={() => {
                   if (user != null) {
-                    dispatch(
-                      AddBookings(
-                        {
-                          serviceItemId: _CurrentBooking?.serviceItemId,
-                          bookerId: user.id,
-                          RecordUserId: user.id,
-                          bookingDateTime: new Date(),
-                          bookingTime: "10:00-11:00",
-                          bookingInstructions: _BookingInstructions,
-                          bookingItemsstring: JSON.stringify(
-                            _CurrentBooking?.bookingItems
-                          ),
-                        },
-                        router
-                      )
-                    );
+                    if(_sDate==undefined)
+                    {
+                      dispatch(
+                        messageAction({
+                          type: 3,
+                          message: "Please select booking date",
+                        })
+                      );
+                    }
+                    else if(_sTime==undefined)
+                    {
+                      dispatch(
+                        messageAction({
+                          type: 3,
+                          message: "Please select booking time",
+                        })
+                      );
+                    }
+                    else if(_BookingInstructionsa.trim()=="")
+                    {
+                      dispatch(
+                        messageAction({
+                          type: 3,
+                          message: "Please select booking address",
+                        })
+                      );
+                    }else{
+
+                        
+                     dispatch(
+                        AddBookings(
+                          {
+                            serviceItemId: _CurrentBooking?.serviceItemId,
+                            bookerId: user.id,
+                            RecordUserId: user.id,
+                            bookingDateTime: _sDate,
+                            bookingTime: _sTime,
+                            bookingAddress:_BookingInstructionsa,
+                            bookingInstructions: _BookingInstructions,
+                            bookingItemsstring: JSON.stringify(
+                              _CurrentBooking?.bookingItems
+                            ),
+                          },
+                          router
+                        )
+                      );
+                       
+                     
+                    }
                   } else {
                     dispatch(
                       messageAction({

@@ -22,41 +22,47 @@ export default ({ _setSdatecst})=>{
          setdays(items);
  
       }, []);
-    return     <OwlCarousel
-    className='owl-theme banner-carousel'
-    loop={false}
-    margin={10}
-    onClick={(e)=>e.preventDefault()}
-    nav={true}
-    dots={false}
-    responsive={{
-      0: {
-        items: 2,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 5,
-      },
-    }}
-  >
+      return <div className='kncsdoaewk-ewkew'>
+      <div className='jkdsfs-je'>
+      {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
+<button
+ onClick={() => {
+    _setSdate(x);
+    _setSdatecst(x);
+ }}
+ className={`${
+   x == _sDate ? "act" : ""
+ } nkasdfods-eamdew sndjkawd-ewjdiaw`}
+>
+ { x}
+</button>
+</div>)}
+    </div>
+    
+    </div>
+  //   return     <OwlCarousel
+  //   className='owl-theme banner-carousel'
+  //   loop={false}
+  //   margin={10}
+  //   onClick={(e)=>e.preventDefault()}
+  //   nav={true}
+  //   dots={false}
+  //   responsive={{
+  //     0: {
+  //       items: 2,
+  //     },
+  //     600: {
+  //       items: 3,
+  //     },
+  //     1000: {
+  //       items: 5,
+  //     },
+  //   }}
+  // >
 
-  {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
-                         <button
-                          onClick={() => {
-                             _setSdate(x);
-                             _setSdatecst(x);
-                          }}
-                          className={`${
-                            x == _sDate ? "act" : ""
-                          } nkasdfods-eamdew sndjkawd-ewjdiaw`}
-                        >
-                          { x}
-                        </button>
-                      </div>)}
+
 
     
     
-  </OwlCarousel>
+  // </OwlCarousel>
 }

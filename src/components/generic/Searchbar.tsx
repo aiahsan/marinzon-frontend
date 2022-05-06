@@ -9,7 +9,7 @@ const App = () => {
 
   return (
     <div className="search-bar">
-      <Dropdown>
+      {/* <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
         {intl.formatMessage({ id: "ax1" })}
          </Dropdown.Toggle>
@@ -19,7 +19,7 @@ const App = () => {
           <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
           <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
         </Dropdown.Menu>
-      </Dropdown>
+      </Dropdown> */}
       <input placeholder={intl.formatMessage({ id: "ax2" })}/>
       <button className="search-btn">
         <BsSearch />
