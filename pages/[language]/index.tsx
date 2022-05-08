@@ -57,7 +57,7 @@ const Home: NextPage = () => {
         <div className="row m-0 top-loc-2">
           {services.map((x,i) => (
             <div className="mb-3 mx-1">
-              <ServiceCard onClick={getRouteName(i+1)} bg="white" data={x} />
+              <ServiceCard  bg="white" data={x} />
             </div>
           ))}
         </div>
