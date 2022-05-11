@@ -1,5 +1,5 @@
 import { AnyAction, Dispatch } from "redux";
-import { IService, IReturnData } from "../../interfaces/data/objects";
+import { IService, IReturnData, ICategory } from "../../interfaces/data/objects";
 import { IReduxStore } from "../../interfaces/data/reduxStore";
 import { loadingAction } from "../../redux/actionMethodes/loader";
 import { messageAction } from "../../redux/actionMethodes/message";
@@ -27,7 +27,17 @@ export function GetServices() {
               message: data?.message,
             })
           );
-          dispatch(setServicesAM(data?.data));
+          
+          let updateData=[...data?.data?.map((x:IService)=>{
+              return {
+                ...x,
+                categories:x?.categories?.filter((x:ICategory)=>x.isApproved==true)
+              }
+          })];
+          
+          
+
+          dispatch(setServicesAM(updateData));
         } else {
           dispatch(loadingAction(false));
           dispatch(

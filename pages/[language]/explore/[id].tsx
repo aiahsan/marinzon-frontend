@@ -19,6 +19,7 @@ import { useIntl } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxStore } from "../../../src/interfaces/data/reduxStore";
 import {
+  GetItems,
   GetItemsByCategoryID,
   GetItemsByServiceID,
 } from "../../../src/functions/Items";
@@ -56,23 +57,25 @@ const Home: NextPage = () => {
         serviceId:undefined ,
       });
     }
+    else
+    {
+      dispatch(GetItems());
+
+    }
      
    
   }, [router.query]);
   React.useEffect(()=>{
     console.log(categoreis);
-    if(ITEMS.length>0)
+    if(categoreis.length<=0)
     {
-      if(categoreis.length<=0)
-      {
-        dispatch(GetCategory())
-  
-      }
-      if(services.length<=0)
-      {
-        dispatch(GetServices());
-  
-      }
+       dispatch(GetCategory())
+
+    }
+    if(services.length<=0)
+    {
+      dispatch(GetServices());
+
     }
   },[ITEMS])
   // React.useEffect(() => {

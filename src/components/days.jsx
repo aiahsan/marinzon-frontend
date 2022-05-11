@@ -16,7 +16,7 @@ export default ({ _setSdatecst})=>{
         const today = moment();
         const res = Array(30)
           .fill()
-          .map(() => today.subtract(1, "d").format("YYYY-MM-DD"));
+          .map(() => today.add(1, "d").format("YYYY-MM-DD"));
          setdays(_.sortBy(res));
  
       }, []);
@@ -24,7 +24,7 @@ export default ({ _setSdatecst})=>{
       return <div className='kncsdoaewk-ewkew w-100'>
         <div className='jkdsfs-je'>
         {days.map((x,i)=> <div className="item d-flex flex-column align-items-center mx-3 flex-wrap my-2">
-                            <p>{moment(x).format("ddd")}</p>
+                            <p style={{fontSize:12}}>{moment(x).format("ddd")} </p>
                             <button
                               onClick={() => {
                                  _setSdate(x);

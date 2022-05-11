@@ -11,7 +11,7 @@ export function GetItems() {
   return function (dispatch: any, getState: any): any {
     (async () => {
       try {
-        dispatch(loadingAction(true));
+         dispatch(loadingAction(true));
         const isAdimn=getState()?.User?.isAdmin;
           const { status, data }: any = await repository
           .GetServiceItem(getState().User?.token || "",isAdimn==false?getState().User?.id:undefined)
@@ -24,7 +24,7 @@ export function GetItems() {
               message: data?.message,
             })
           );
-            dispatch(setItemAM(data?.data));
+             dispatch(setItemAM(data?.data?.filter((x:IItem)=>x.isApproved==true && x?.category?.isApproved==true && x?.category.isActive==true)));
          } else {
           dispatch(loadingAction(false));
           dispatch(
@@ -189,8 +189,8 @@ export function GetItemsByServiceID(serviceId:number) {
               message: data?.message,
             })
           );
-            dispatch(setItemAM(data?.data));
-         } else {
+          dispatch(setItemAM(data?.data?.filter((x:IItem)=>x.isApproved==true && x?.category?.isApproved==true && x?.category.isActive==true)));
+        } else {
           dispatch(loadingAction(false));
           dispatch(
             messageAction({
@@ -217,7 +217,7 @@ export function GetItemsByCategoryID(categoryId:number) {
   return function (dispatch: any, getState: any): any {
     (async () => {
       try {
-        dispatch(loadingAction(true));
+         dispatch(loadingAction(true));
         const isAdimn=getState()?.User?.isAdmin;
           const { status, data }: any = await repository
           .GetServiceItemByCategoryId(getState().User?.token || "",isAdimn==false?getState().User?.id:undefined,categoryId)
@@ -230,7 +230,7 @@ export function GetItemsByCategoryID(categoryId:number) {
               message: data?.message,
             })
           );
-            dispatch(setItemAM(data?.data));
+            dispatch(setItemAM(data?.data?.filter((x:IItem)=>x.isApproved==true && x?.category?.isApproved==true && x?.category.isActive==true)));
          } else {
           dispatch(loadingAction(false));
           dispatch(

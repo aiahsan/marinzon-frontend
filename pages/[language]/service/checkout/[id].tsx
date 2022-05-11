@@ -91,7 +91,7 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                   />
                 </div>
                 <p className="my-3">
-                  Your professional will arrive between 10:00-11:00
+                  Your professional will arrive between {_sTime}
                 </p>
               </div>
               <div className="my-4">

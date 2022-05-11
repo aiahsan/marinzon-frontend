@@ -18,6 +18,7 @@ export interface ICategory extends IBase {
   description: string;
   service?: IService;
   items?:IItem[];
+  isApproved?:boolean;
 
 }
 export interface IService extends IBase {
@@ -43,7 +44,8 @@ export interface IItem extends IBase {
   bookingBy?:number | string ;
   user?:ILogin;
   service?: IService;
-  category?:ICategory
+  category?:ICategory;
+  isApproved?:boolean;
 }
 export interface IFAQService extends IBase {
   id?: number | undefined |string;
