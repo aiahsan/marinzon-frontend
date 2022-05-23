@@ -64,23 +64,26 @@ const handleScroll = () => {
           <div className="d-flex justify-content-between flex-wrap">
             <HomeSCard
               icon="b1"
-              head="COVID-19 PCR Test"
-              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+              head="
+              Furniture Cleaning"
+              title="Get your sofa, curtain, carpet and mattress professionally cleaned at home."
             />
             <HomeSCard
               icon="b1"
-              head="COVID-19 PCR Test"
-              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+              head="Pest Control"
+              title="
+              Clear your home of unwanted pests in Dubai.
+              "
             />
             <HomeSCard
               icon="b1"
-              head="COVID-19 PCR Test"
-              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+              head="Handyman & Maintenance"
+              title="Get a professional and verified handyman service in Dubai."
             />
             <HomeSCard
               icon="b1"
-              head="COVID-19 PCR Test"
-              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+              head="AC Cleaning"
+              title="We provide your home with the clean air it deserve"
             />
           </div>
         </div>
