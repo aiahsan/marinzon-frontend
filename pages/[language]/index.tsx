@@ -10,8 +10,7 @@ import Navbar from "../../src/components/header/Navbar2";
 import Navbar1 from "../../src/components/header/Navbar";
 import Topbar from "../../src/components/header/Topbar";
 import Heading from "../../src/components/headings/Heading";
-import Footer from "../../src/components/footer/Footer";
-import { useIntl } from "react-intl";
+ import { useIntl } from "react-intl";
 import { useRouter } from "next/router";
 import HomeCard from "../../src/components/cards/homeCard";
 import styles from "../../styles/Home.module.css";
@@ -23,6 +22,7 @@ import { ImHappy } from "react-icons/im";
 import { getRouteName } from "./services/[id]";
 import Carousel from "../../src/components/carousel";
 import HomeSCard from "../../src/components/cards/homeSCard";
+import Footer from '../../src/components/footer'
 const Home: NextPage = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
@@ -182,7 +182,8 @@ const handleScroll = () => {
           </div>
            
         </div> 
-      
+        <Footer/>
+
       </div> 
 
 
