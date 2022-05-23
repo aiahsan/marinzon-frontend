@@ -131,11 +131,18 @@ body {
 .text-big {
   color: #f5b913;
 }
-body .nckdsma-serma .lgn-btn {
+body .nckdsma-serma .lgn-btn{
+  padding: 10px 40px !important;
+
+}
+body .njsa-an3edwaue3{
+  font-size: 12px;
+  font-weight: 500;
+}
+body .nckdsma-serma .lgn-btn,body .njsa-an3edwaue3 {
   background: #0068FF;
   color: white !important;
   border-radius: 10px;
-  padding: 10px 40px !important;
   cursor: pointer;
 }
 .btn-primary {
@@ -2005,4 +2012,25 @@ color: #333333;
   
   
   color: #1B1D22;
+}
+.hjdkf-serjferf h3{
+  font-weight: 600;
+font-size: 16px;
+line-height: 33px;
+
+color: #333333;
+}
+.hjdkf-serjferf
+{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.njmfsad-n3ed img{
+  width: 100%
+}
+.njmfsad-n3ed{
+  display: flex;
+  justify-content: center;
+  max-width: 170px;
 }

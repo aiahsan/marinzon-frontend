@@ -119,6 +119,38 @@ const handleScroll = () => {
             </div>
           </div>
         </div>
+        <div className=" mnakvd-erre32e">
+          <h4>Marinzon Best Selling Products</h4>
+          <div className="d-flex justify-content-between flex-wrap">
+            <HomeSCard
+              icon="b1"
+              head="
+              Furniture Cleaning"
+              title="Get your sofa, curtain, carpet and mattress professionally..."
+                  price="300"
+            />
+            <HomeSCard
+              icon="b1"
+              head="Pest Control"
+              title="
+              Clear your home of unwanted pests in Dubai.
+              "
+              price="250"
+            />
+            <HomeSCard
+              icon="b1"
+              head="Maintenance"
+              title="Get a professional and verified handyman service in Dubai."
+              price="100"
+            />
+            <HomeSCard
+              icon="b1"
+              head="AC Cleaning"
+              title="We provide your home with the clean air it deserve"
+              price="400"
+            />
+          </div>
+        </div>
         <div className="sadnks-wewm mnakvd-erre32e njdsf-nasew3">
           <div className="knasdks-jdnwd nsdi0jew-2w2">
             <h4>Buy or Rent Choose Your favourite Boat</h4>
