@@ -13,14 +13,16 @@ import Heading from "../../src/components/headings/Heading";
 import Footer from "../../src/components/footer/Footer";
 import { useIntl } from "react-intl";
 import { useRouter } from "next/router";
-import HomeCard from '../../src/components/cards/homeCard'
+import HomeCard from "../../src/components/cards/homeCard";
 import styles from "../../styles/Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { GetServices } from "../../src/functions/Services";
 import { IReduxStore } from "../../src/interfaces/data/reduxStore";
- import {GiCalendar, GiSailboat} from 'react-icons/gi'
- import {ImHappy} from 'react-icons/im'
+import { GiCalendar, GiSailboat } from "react-icons/gi";
+import { ImHappy } from "react-icons/im";
 import { getRouteName } from "./services/[id]";
+import Carousel from "../../src/components/carousel";
+import HomeSCard from "../../src/components/cards/homeSCard";
 const Home: NextPage = () => {
   const intl = useIntl();
   const dispatch = useDispatch();
@@ -35,146 +37,139 @@ const Home: NextPage = () => {
   return (
     <div>
       <div className=" ">
-    
+        <Navbar />
+      </div>
+      <Carousel />
 
-      <Navbar />
-
-      </div>
-      <div className="kjoca-asejnwi23">
-        <h3 className="text-main-head">Find your next Booking</h3>
-        <div className="kfasd-neir">
-          <HomeCard isCenter={false} icon={()=><GiSailboat className="mb-2" color="#f5b913" size={34} />} title="Select Service" description="Lorem ipsum is a placeholder text commonly used"/>
-          <HomeCard isCenter={true} icon={()=><GiCalendar className="mb-2" color="#f5b913" size={34} />} title="Place your Booking" description="Lorem ipsum is a placeholder text commonly used"/>
-          <HomeCard isCenter={false} icon={()=><ImHappy className="mb-2" color="#f5b913" size={34} />} title="Enjoy" description="Lorem ipsum is a placeholder text commonly used"/>
-        </div>
-      </div>
-      <section className="service-sec container mt-10">
-        <Heading
-          center
-          title={intl.formatMessage({ id: "ar9" })}
-          subtitle={intl.formatMessage({ id: "ar10" })}
-        />
-        <div className="row m-0 top-loc-2">
-          {services.map((x,i) => (
-            <div className="mb-3 mx-1">
-              <ServiceCard  bg="white" data={x} />
-            </div>
-          ))}
-        </div>
-      </section>
-      <section className="container mt-10">
-        <Heading
-          title={intl.formatMessage({ id: "al1" })}
-          subtitle={intl.formatMessage({ id: "al2" })}
-        />
-        <div className="row  buy-rent-sec">
-          <div className="col-md-5">
-            <img className="w-100 img-m1" src="2.jpg" />
-          </div>
-          <div className="col-md-7 d-flex align-items-center flex-column justify-content-center">
-            <p>{intl.formatMessage({ id: "al3" })}</p>
-            <button className="btn btn-primary">
-              {intl.formatMessage({ id: "al4" })}
-            </button>
-          </div>
-        </div>
-      </section>
-      <div className="bg-gr">
-        <section className="container mt-5">
-          <div className="row m-0">
-            <div className="col-md-6">
-              <Heading
-                size="sm"
-                title={intl.formatMessage({ id: "al5" })}
-                subtitle={intl.formatMessage({ id: "al6" })}
-              />
-              <div className="row  buy-rent-sec  mt-3">
-                <div className="col-md-12 d-flex align-items-center flex-column justify-content-center">
-                  <p>{intl.formatMessage({ id: "al7" })}</p>
-                  <button className="btn btn-primary">
-                    {intl.formatMessage({ id: "al8" })}
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <Heading
-                size="sm"
-                title={intl.formatMessage({ id: "al9" })}
-                subtitle={intl.formatMessage({ id: "al10" })}
-              />
-              <div className="row buy-rent-sec mt-3">
-                <div className="col-md-12 d-flex align-items-center flex-column justify-content-center">
-                  <p>{intl.formatMessage({ id: "al11" })}</p>
-                  <button className="btn btn-primary">
-                    {intl.formatMessage({ id: "al12" })}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <section className="container mt-5">
-        <div className="row m-0">
-          <div className="col-md-12">
-            <Heading
-              size="sm"
-              center
-              title={intl.formatMessage({ id: "al13" })}
-              subtitle={intl.formatMessage({ id: "al14" })}
+      <div className="container">
+        <div className=" mnakvd-erre32e">
+          <h4>Marinzon has got your home covered for up to AED 1000!</h4>
+          <div className="d-flex justify-content-between">
+            <HomeSCard
+              icon="b1"
+              head="COVID-19 PCR Test"
+              title="Get a PCR test done at the comfort of your home, office, or hotel!"
             />
-            <div className="row  buy-rent-sec  mt-3">
-              <div className="col-md-12 d-flex align-items-center flex-column justify-content-center">
-                <p className="m-0 p-0">{intl.formatMessage({ id: "al15" })}</p>
-                <p className="m-0 p-0">{intl.formatMessage({ id: "al16" })}</p>
-              </div>
-            </div>
-
-            <div className="row m-0">
-              <div className="col-md-6">
-                <EasyCard
-                  img="b1.svg"
-                  title={intl.formatMessage({ id: "al17" })}
-                  para={intl.formatMessage({ id: "al18" })}
-                />
-              </div>
-              <div className="col-md-6">
-                <EasyCard
-                  img="b2.svg"
-                  title={intl.formatMessage({ id: "al19" })}
-                  para={intl.formatMessage({ id: "al20" })}
-                />
-              </div>
-              <div className="col-md-12">
-                <EasyCard
-                  img="b3.svg"
-                  title={intl.formatMessage({ id: "al21" })}
-                  para={intl.formatMessage({ id: "al22" })}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="container mt-10">
-        <div className="row m-0">
-          <div className="col-md-8 app-sec buy-rent-sec">
-            <Heading
-              size="sm"
-              title={intl.formatMessage({ id: "al23" })}
-              subtitle={intl.formatMessage({ id: "al24" })}
+            <HomeSCard
+              icon="b1"
+              head="COVID-19 PCR Test"
+              title="Get a PCR test done at the comfort of your home, office, or hotel!"
             />
-            <p className="m-0 p-0">{intl.formatMessage({ id: "al25" })}</p>
-
-            <div className="row m-0"></div>
-          </div>
-          <div className="col-md-4">
-            <img src="download-app-banner.png" className="w-100" />
+            <HomeSCard
+              icon="b1"
+              head="COVID-19 PCR Test"
+              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+            />
+            <HomeSCard
+              icon="b1"
+              head="COVID-19 PCR Test"
+              title="Get a PCR test done at the comfort of your home, office, or hotel!"
+            />
           </div>
         </div>
-      </section>
-      <Footer />
+        <div className="sadnks-wewm mnakvd-erre32e">
+          <div className="nkdksa-wkejme">
+            <img src="/Group 86.png" />{" "}
+          </div>
+          <div className="knasdks-jdnwd">
+            <h4>So many reason to love Marinzon!</h4>
+            <h6>Let’s be sure we are a good fit for you</h6>
+            <div>
+              <div className="kksadj-waoekjowa">
+                <h3>Trusted Cleaners</h3>
+                <p>
+                  Professional, well-trained, reliable cleaners that have been
+                  thoroughly screened before being hired!
+                </p>
+              </div>
+              <div className="kksadj-waoekjowa">
+                <h3>No Hidden Cost</h3>
+                <p>
+                  You must have a verifiable income source (Employed or Self
+                  Employed)
+                </p>
+              </div>
+              <div className="kksadj-waoekjowa">
+                <h3>Same Day Availability</h3>
+                <p>
+                  Booking takes less than 60 seconds! And you can schedule for
+                  as early as today
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="sadnks-wewm mnakvd-erre32e">
+          <div className="knasdks-jdnwd nsdi0jew-2w2">
+            <h4>Buy or Rent Choose Your favourite Boat</h4>
+            <div>
+              <h6>
+                Owning a superyacht is the freedom to explore the world on your
+                terms without limits. With 45 years of experience sourcing the
+                best yachts at the best prices, YPI’s team of worldwide brokers
+                are experts in finding the right yacht for every client.
+              </h6>
+            </div>
+            <button className="btn btn-main-th">Explore More</button>
+          </div>
+          <div className="nkdksa-wkejme">
+            <img src="/Group 87.png" />{" "}
+          </div>
+        </div>
+
+        <div className="jkjsnca-anejww23">
+          <div className="text-center">
+            <h4>
+              Book a reliable home cleaning service in UAE within 60 seconds
+            </h4>
+            <h6>
+              There are better ways for you to spend your time, so we made it
+              easy for you. Book your house cleaning in 60 seconds, and our
+              professionals will take care of the rest.
+            </h6>
+          </div>
+          <div className="d-flex justify-content-between nmdamcs-anwjdsa">
+            <EasyCard
+              img="b1.svg"
+              title={intl.formatMessage({ id: "al17" })}
+              para={intl.formatMessage({ id: "al18" })}
+            />
+            <EasyCard
+              img="b2.svg"
+              title={intl.formatMessage({ id: "al17" })}
+              para={intl.formatMessage({ id: "al18" })}
+            />
+            <EasyCard
+              img="b3.svg"
+              title={intl.formatMessage({ id: "al17" })}
+              para={intl.formatMessage({ id: "al18" })}
+            />
+          </div>
+        </div>
+        <div className="sadnks-wewm mnakvd-erre32e">
+         <div className="njandfsa-nadwe"> 
+           <div className=" ">
+            <h4>Get the Booking Service App now!</h4>
+            <div>
+              <h6>
+              Book and manage your appointments with a few taps, view your professional’s profile and ratings, see real-time location of your professional and much more.
+
+
+              </h6>
+            </div>
+            <button className="btn btn-main-th">Download</button>
+          </div>
+          <div className="ncsldap-je2">
+          <img src="/download-app-banner.png"/>
+
+          </div>
+          </div>
+           
+        </div>
+      </div>
+
+
+
     </div>
   );
 };

@@ -22,7 +22,7 @@ import { Dropdown } from "react-bootstrap";
 import { useMediaQuery } from 'react-responsive'
 import CategoryAccordian from '../../components/generic/CategoryAccordian'
 let expand = "xl";
-const LogoImage = require("../../images/smlogo.png");
+const LogoImage = require("../../images/image 5.png");
 
 export default () => {
   const isDesktopOrLaptop = useMediaQuery({
@@ -38,7 +38,7 @@ export default () => {
   return (
     <>
       {" "}
-      <div className="mb-5 nav-bar-2">
+      <div className="ankf-js3eiwne">
         <Navbar key={expand} bg="" expand={expand} fixed="top" className="mb-3">
           <Container fluid>
             <Navbar.Brand onClick={()=>{
@@ -46,7 +46,7 @@ export default () => {
                      ? router.push("/" + Language )
                      : router.push("/en-AE");
                   }}>
-              <Image src={LogoImage} className="logo-img" />
+              <Image src={LogoImage} width={120} height={31} className="logo-img" />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
@@ -60,7 +60,7 @@ export default () => {
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
-              <div className="d-flex w-100 align-items-center justify-content-between ksan-2enj23">
+              <div className="nckdsma-serma d-flex w-100 align-items-center justify-content-between ksan-2enj23">
                   
               <div className="sdmkasd-wew">
                     <ul className="exo-menu">
@@ -134,7 +134,7 @@ export default () => {
                       : router.push("/en-AE/services");
                     }}>Services</Nav.Link>
 
-                  <div className="topSearchbar">
+                  {/* <div className="topSearchbar">
                     <div className="w-100">
                       <input
                         type="text"
@@ -144,7 +144,7 @@ export default () => {
                     <div className="icon-search-bx">
                       <GoSearch color="white" />
                     </div>
-                  </div>
+                  </div> */}
                   <Nav.Link href="#action1">Contact Us</Nav.Link>
                   <Nav.Link onClick={()=>{
                      language != undefined
