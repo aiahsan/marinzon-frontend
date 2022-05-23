@@ -39,7 +39,7 @@ export default () => {
     <>
       {" "}
       <div className="ankf-js3eiwne">
-        <Navbar key={expand} bg="" expand={expand} fixed="top" className="mb-3">
+        <Navbar key={expand} bg="" expand={expand} fixed="top" id="nav-main-cst" className="mb-3">
           <Container fluid>
             <Navbar.Brand onClick={()=>{
                      language != undefined

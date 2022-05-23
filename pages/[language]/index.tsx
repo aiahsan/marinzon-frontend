@@ -33,7 +33,24 @@ const Home: NextPage = () => {
   }, []);
 
   React.useEffect(() => {}, [services]);
+  React.useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+}, [])
 
+const handleScroll = () => {
+  const offset = window.scrollY;
+
+  if (offset > 454) {
+    //@ts-ignore
+    document.querySelector("#nav-main-cst").className =
+    "mb-3 navbar navbar-expand-xl navbar-light fixed-top m-0 b-0";
+  }
+  else {
+    //@ts-ignore
+    document.querySelector("#nav-main-cst").className =
+    "mb-3 navbar navbar-expand-xl navbar-light fixed-top ";
+  }
+}
   return (
     <div>
       <div className=" ">
