@@ -77,19 +77,19 @@ export default ()=>{
         <div className="mdsoa-e3l3e  kjsdad-dsfrerfes" onClick={()=>{
       _setid(1)
     }}>
-             <img src="/v1.png"/>
+             <img src={_id==1?"/av1.png":"/v1.png"}/>
         </div>
   
         <div className="mdsoa-e3l3e kjsdad-dsfrerfes" onClick={()=>{
       _setid(2)
     }}>
-             <img src="/v2.png"/>
+             <img src={_id==2?"/av2.png":"/v2.png"}/>
         </div>
   
         <div className="mdsoa-e3l3e kjsdad-dsfrerfes" onClick={()=>{
       _setid(3)
     }}>
-             <img src="/v3.png"/>
+             <img src={_id==3?"/av3.png":"/v3.png"}/>
         </div>
   
     </div>
