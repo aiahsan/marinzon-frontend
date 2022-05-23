@@ -7,7 +7,7 @@ import ServiceCard from "../src/components/cards/ServiceCard";
 import Navbar from "../src/components/header/Navbar";
 import Topbar from "../src/components/header/Topbar";
 import Heading from "../src/components/headings/Heading";
-import Footer from "../src/components/footer/Footer";
+import Footer from "../src/components/footer";
 import styles from "../styles/Home.module.css";
 import CategoryAccordian from "../src/components/generic/CategoryAccordian";
 import ProductCard from "../src/components/cards/ProductCard";
@@ -152,8 +152,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-      <Footer />
-    </div>
+      <div className="container">
+        <Footer />
+      </div>    </div>
   );
 };
 

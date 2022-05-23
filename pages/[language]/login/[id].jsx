@@ -6,7 +6,7 @@ import ServiceCard from "../../../src/components/cards/ServiceCard";
 import Navbar from "../../../src/components/header/Navbar2";
 import Topbar from "../../../src/components/header/Topbar";
 import Heading from "../../../src/components/headings/Heading";
-import Footer from "../../../src/components/footer/Footer";
+import Footer from "../../../src/components/footer";
  import CategoryAccordian from "../../../src/components/generic/CategoryAccordian";
 import ProductCard from "../../../src/components/cards/ProductCard";
 import Searchbar from "../../../src/components/generic/Searchbar";
@@ -127,8 +127,9 @@ disptach(LoginUser(values,routerr))
         </section>
       </div>
 
-      <Footer />
-    </div>
+      <div className="container">
+        <Footer />
+      </div>    </div>
   );
 };
 function parseCookies(req){
