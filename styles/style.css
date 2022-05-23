@@ -1082,6 +1082,9 @@ a {
     margin: auto;
     margin-top: 30%;
   }
+  .carousel .slide{
+    min-width: 150%!important;
+  }
   .lkdsmvaos0erl
   {
     flex-direction: column;
