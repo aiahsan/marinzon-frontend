@@ -24,6 +24,7 @@ import { messageAction } from "../../../src/redux/actionMethodes/message";
 import { setCurrentBookingAM } from "../../../src/redux/actionMethodes/Currentbooking";
 import { IReduxStore } from "../../../src/interfaces/data/reduxStore";
 import { bookingStatus } from "../../../src/utiles/constants";
+import Heading1 from "../../../src/components/headings/Heading1";
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
@@ -95,7 +96,7 @@ const Home: NextPage = () => {
       </div>
 
       <section className="container  mb-5 mt-10">
-        <Heading center title={_item?.title} subtitle={_item?.description} />
+        <Heading1 center title={_item?.title} subtitle={_item?.description} />
       </section>
 
       <div className="container  mb-5">

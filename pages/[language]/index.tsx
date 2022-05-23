@@ -23,8 +23,10 @@ import { getRouteName } from "./services/[id]";
 import Carousel from "../../src/components/carousel";
 import HomeSCard from "../../src/components/cards/homeSCard";
 import Footer from '../../src/components/footer'
-const Home: NextPage = () => {
+ const Home: NextPage = () => {
   const intl = useIntl();
+  const router = useRouter()
+
   const dispatch = useDispatch();
   const services = useSelector((x: IReduxStore) => x.Services);
   React.useEffect(() => {
@@ -39,22 +41,31 @@ const Home: NextPage = () => {
 
 const handleScroll = () => {
   const offset = window.scrollY;
-
-  if (offset > 454) {
-    //@ts-ignore
-    document.querySelector("#nav-main-cst").className =
-    "mb-3 navbar navbar-expand-xl navbar-light fixed-top m-0 b-0";
+  console.log(document.querySelector("#nav-main-cst")?.classList.contains("hkjadfhsd-3213"))
+   if(document.querySelector("#nav-main-cst")?.classList.contains("hkjadfhsd-3213"))
+  {
+     
   }
-  else {
-    //@ts-ignore
-    document.querySelector("#nav-main-cst").className =
-    "mb-3 navbar navbar-expand-xl navbar-light fixed-top ";
+  else
+  {
+    if (offset > 454) {
+      //@ts-ignore
+      document.querySelector("#nav-main-cst").className =
+      "mb-3 navbar navbar-expand-xl navbar-light fixed-top m-0 b-0";
+    }
+    else {
+      //@ts-ignore
+      document.querySelector("#nav-main-cst").className =
+      "mb-3 navbar navbar-expand-xl navbar-light fixed-top ";
+    }
   }
+  
+  
 }
   return (
     <div>
       <div className=" ">
-        <Navbar />
+        <Navbar isHome={true} />
       </div>
       <Carousel />
 

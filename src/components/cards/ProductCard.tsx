@@ -42,11 +42,13 @@ const App = () => {
                   </div>
                   <div className="profile__info">
                     <h4>{x.title}</h4>
+                    <div className="na-dnw2enwqw">
                     <p className="profile__info__extra">{x.description}</p>
+                    </div>
                     <div className="profile-box">
                       <div>
-                        <p>{intl.formatMessage({ id: "ac35" })}</p>
-                        <p>
+                        <h3>{intl.formatMessage({ id: "ac35" })}</h3>
+                        <h3 className="m-0">
                           {
                             //@ts-ignore
                             Math.min.apply(
@@ -60,19 +62,19 @@ const App = () => {
                                 .flatMap((j) => [...j])
                             )
                           }
-                        </p>
+                        </h3>
                       </div>
                       <div>
-                        <p>{intl.formatMessage({ id: "ac37" })}</p>
-                        <p>
-                          <strong>{intl.formatMessage({ id: "ac38" })}</strong>
-                        </p>
+                        <h3>{intl.formatMessage({ id: "ac37" })}</h3>
+                        <h3 className="m-0">
+                        {intl.formatMessage({ id: "ac38" })}
+                        </h3>
                       </div>
                       <div>
-                        <p>{intl.formatMessage({ id: "ac39" })}</p>
-                        <p>
-                          <strong>{x.user?.fullName}</strong>
-                        </p>
+                        <h3>{intl.formatMessage({ id: "ac39" })}</h3>
+                        <h3 className="m-0">
+                        {x.user?.fullName}
+                        </h3>
                       </div>
                     </div>
                   </div>

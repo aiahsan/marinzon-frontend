@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { BiCategoryAlt } from "react-icons/bi";
 import { GoSearch } from "react-icons/go";
+import {FaOpencart} from 'react-icons/fa'
 import {ImageUrl} from '../../utiles/baseUrl'
 import {
   Button,
@@ -24,7 +25,7 @@ import CategoryAccordian from '../../components/generic/CategoryAccordian'
 let expand = "xl";
 const LogoImage = require("../../images/image 5.png");
 
-export default () => {
+export default ({isHome}:{isHome?:boolean}) => {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(max-width: 1199px)'
   })
@@ -39,7 +40,7 @@ export default () => {
     <>
       {" "}
       <div className="ankf-js3eiwne">
-        <Navbar key={expand} bg="" expand={expand} fixed="top" id="nav-main-cst" className="mb-3">
+        <Navbar key={expand} bg="" expand={expand} fixed="top" id="nav-main-cst" className={`m-0 ${isHome?"":"hkjadfhsd-3213"}`}>
           <Container fluid>
             <Navbar.Brand onClick={()=>{
                      language != undefined
@@ -56,7 +57,7 @@ export default () => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+               Marinzon
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
@@ -145,6 +146,7 @@ export default () => {
                       <GoSearch color="white" />
                     </div>
                   </div> */}
+                  <Nav.Link href="#action1">Products</Nav.Link>
                   <Nav.Link href="#action1">Contact Us</Nav.Link>
                   <Nav.Link onClick={()=>{
                      language != undefined
@@ -166,6 +168,9 @@ export default () => {
                     {User != null
                       ? "Log out"
                       : intl.formatMessage({ id: "en8" })}
+                  </Nav.Link>
+                  <Nav.Link href="#action1">
+                    <FaOpencart/>
                   </Nav.Link>
                   <div className="top-bar">
                     <Dropdown>
@@ -201,7 +206,10 @@ export default () => {
                         </Dropdown.Item>
                       </Dropdown.Menu>
                     </Dropdown>
+                    
                   </div>
+                 
+
                   </>
                 </div>
               

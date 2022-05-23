@@ -25,6 +25,7 @@ import {
 } from "../../../src/functions/Items";
 import { GetServices } from "../../../src/functions/Services";
 import { GetCategory } from "../../../src/functions/Categories";
+import { GoSearch } from "react-icons/go";
 
 const Home: NextPage = () => {
   const intl = useIntl();
@@ -96,7 +97,20 @@ const Home: NextPage = () => {
          <Navbar />
       </div>
       <div className="container d-flex mt-10 justify-content-center">
-        <Searchbar />
+      <div className="topSearchbar">
+                    <div className="w-100">
+                      <input
+                        type="text"
+                        placeholder="Search everything at Marinzon"
+                      />
+                    </div>
+                    <div className="icon-search-bx">
+                      <GoSearch color="white" />
+                    </div>
+                  </div> 
+      </div>
+      <div className="container mnakvd-erre32e mt-5">
+       
       </div>
       {/* <section className="service-sec container mt-5">
         <Heading
