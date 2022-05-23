@@ -145,7 +145,7 @@ body .nckdsma-serma .lgn-btn {
   position: relative;
   z-index: 1111;
 }
-.main-heading h1 ,.text-main-head{
+ .text-main-head{
   font-weight: 700;
   font-size: 36px;
   line-height: 31px;
@@ -162,6 +162,8 @@ body .nckdsma-serma .lgn-btn {
   margin-bottom: 0px;
 
   color: #2b2b2b;
+  margin-top: 20px;
+  text-align: center;
 }
 .catbx .overlay-black,
 .catbx .image-text-overlay {
@@ -1596,12 +1598,7 @@ justify-content: space-between;
       height: auto;
     }
 
-    .kmcmsd-emk4e p{
-      font-size: 14px;
-      line-height: 18px;
-      font-weight: 500;
-      margin-top: 20px;
-    }
+    
     .jmdsa-casmier{
       max-width: 500px;
       width: 100%;
@@ -1764,12 +1761,19 @@ color: #6f6d6d;
   display: flex;
   justify-content: flex-end;
 }
+.main-heading h1{
+  text-align: center;
+  
+}
 .mnakvd-erre32e h4{
+  max-width: 569px;
+
+}
+.mnakvd-erre32e h4,.main-heading h1{
   font-weight: 500;
   font-size: 30px;
   line-height: 35px;
   color: #333333;
-  max-width: 569px;
 }
 .mnakvd-erre32e{
   margin-top: 10%;
@@ -1874,12 +1878,15 @@ left: -18px;
 
 }
 .kksadj-waoekjowa p{
+  max-width: 370px;
+
+}
+.kksadj-waoekjowa p,.kmcmsd-emk4e p{
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
   
   color: #1B1D22;
-  max-width: 370px;
   
    
 }

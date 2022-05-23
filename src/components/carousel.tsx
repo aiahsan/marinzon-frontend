@@ -95,5 +95,6 @@ export default ()=>{
     </div>
     <GetBox id={_id}/>
   </div>
+  
 </div>
 }

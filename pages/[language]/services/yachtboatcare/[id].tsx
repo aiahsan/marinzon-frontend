@@ -73,7 +73,7 @@ const Home: NextPage = () => {
         <section className="service-sec container mt-10">
           <Heading
             center
-            title={intl.formatMessage({ id: "ar9" })}
+            title={""}
             subtitle={"YACHT/BOAT CARE"}
           />
         </section>
