@@ -58,10 +58,10 @@ const handleScroll = () => {
       </div>
       <Carousel />
 
-      <div className="container">
+        <div className="container">
         <div className=" mnakvd-erre32e">
           <h4>Marinzon has got your home covered for up to AED 1000!</h4>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex justify-content-between flex-wrap">
             <HomeSCard
               icon="b1"
               head="COVID-19 PCR Test"
@@ -84,8 +84,8 @@ const handleScroll = () => {
             />
           </div>
         </div>
-        <div className="sadnks-wewm mnakvd-erre32e">
-          <div className="nkdksa-wkejme">
+         <div className="sadnks-wewm mnakvd-erre32e">
+          <div className="nkdksa-wkejme mx-4">
             <img src="/Group 86.png" />{" "}
           </div>
           <div className="knasdks-jdnwd">
@@ -116,7 +116,7 @@ const handleScroll = () => {
             </div>
           </div>
         </div>
-        <div className="sadnks-wewm mnakvd-erre32e">
+        <div className="sadnks-wewm mnakvd-erre32e njdsf-nasew3">
           <div className="knasdks-jdnwd nsdi0jew-2w2">
             <h4>Buy or Rent Choose Your favourite Boat</h4>
             <div>
@@ -129,11 +129,10 @@ const handleScroll = () => {
             </div>
             <button className="btn btn-main-th">Explore More</button>
           </div>
-          <div className="nkdksa-wkejme">
+          <div className="nkdksa-wkejme mx-4">
             <img src="/Group 87.png" />{" "}
           </div>
         </div>
-
         <div className="jkjsnca-anejww23">
           <div className="text-center">
             <h4>
@@ -145,7 +144,7 @@ const handleScroll = () => {
               professionals will take care of the rest.
             </h6>
           </div>
-          <div className="d-flex justify-content-between nmdamcs-anwjdsa">
+          <div className="d-flex justify-content-between nmdamcs-anwjdsa flex-wrap">
             <EasyCard
               img="b1.svg"
               title={intl.formatMessage({ id: "al17" })}
@@ -182,8 +181,9 @@ const handleScroll = () => {
           </div>
           </div>
            
-        </div>
-      </div>
+        </div> 
+      
+      </div> 
 
 
 
