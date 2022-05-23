@@ -99,132 +99,112 @@ const Home: NextPage = () => {
         <Heading1 center title={_item?.title} subtitle={_item?.description} />
       </section>
 
-      <div className="container  mb-5">
-        <div
-          className="item-overlay"
-          style={{
-            backgroundImage: `linear-gradient(to bottom, rgb(145 145 145 / 38%), rgb(171 171 171 / 10%)), url(${ImageUrl+_item?.image})`,
-            // backgroundImage: `url('/bg5.jpg')`,
-          }}
-        >
-          <div className="d-flex justify-content-between">
-            <div className="d-flex">
-              <div className="mr-">
-                <BsFillStarFill color="#f5b913" />
-              </div>
-              <div className="mx-1">
-                <BsFillStarFill color="#f5b913" />
-              </div>
-              <div className="mx-1">
-                <BsFillStarFill color="#f5b913" />
-              </div>
-              <div className="mx-1">
-                <BsFillStarFill color="#f5b913" />
-              </div>
-              <div className="mx-1">
-                <BsFillStarFill color="white" />
-              </div>
-            </div>
-            <div></div>
-          </div>
-          <div className="d-flex justify-content-between flex-c">
-            <div className="svc-card ">
-              {_item?.serviceItemServices.map((x) => {
-                return (
-                  <div>
-                    <p>{x?.serviceItemServiceTitle}</p>
-                    <div>
-                      {x?.serviceItemServicePrices.map((y) => {
-                        return (
-                          <button
-                            onClick={() => {
-                              let oldS = [
-                                ..._selectedService.filter(
-                                  (t) => t.pId != x?.id
-                                ),
-                              ];
-                              oldS.push({
-                                pId: x?.id,
-                                cId: y?.id,
-                                price: y?.serviceItemServiceValue,
-                              });
-                              _setselectedService([...oldS]);
-                            }}
-                            className={`btn btn-info ${
-                              _selectedService.map((x) => x.cId).includes(y?.id)
-                                ? "selected-btn"
-                                : ""
-                            }`}
-                          >
-                            {y.serviceItemServiceTitle} 
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-            <div className="svc-card">
-              <div>
-                <p>
-                  {intl.formatMessage({ id: "ac35" })}:{" "}
-                  <strong>
-                    {_selectedService
-                      .map((x) => x?.price)
-                      .reduce((a, b) => parseInt(a) + parseInt(b), 0)} AED
-                  </strong>
-                </p>
+      <div className="kdsfmanc30qj2n wmb-5">
+      <div className="dnfaks-asme">
+        <div className="sajdnw-q2ejnjwd">
+          <img src={ImageUrl+_item?.image}/>
+        </div>
+      <div className="hjkfdas-akwenaw  flex-c">
+  <div className="svc-card ">
+    {_item?.serviceItemServices.map((x) => {
+      return (
+        <div>
+          <p>{x?.serviceItemServiceTitle}</p>
+          <div>
+            {x?.serviceItemServicePrices.map((y) => {
+              return (
                 <button
-                  className="btn btn-primary"
+              
                   onClick={() => {
-                    if(_selectedService.length>0)
-                    {
-                      
-                       dispatch(setCurrentBookingAM({
-                        serviceItemId:_item?.id,
-                        bookerId:User?.id,
-                        bookingStatus:"Pending",
-                        title:_item?.title,
-                        bookingItems:_selectedService.map(b=>{
-                          return {
-                            BookingId:_item?.id,
-                            ServiceItemServiceId:b?.pId,
-                            ServiceItemServicePriceId:b?.cId,
-                            Price:b?.price
-                          }
-                        })
-                      }))
-                     
-                      
-                      if(User!=null)
-                      {
-                        language != undefined
-                      ? router.push("/" + Language + "/service/checkout")
-                      : router.push("/en-AE/service/checkout");
-                      }else
-                      {
-                        language != undefined
-                        ? router.push("/" + Language + "/login")
-                        : router.push("/en-AE/login");
-                      }
-                      
-                    }
-                    else
-                    {
-                      dispatch(messageAction({
-                        type:3,
-                        message:"Please select at least one service"
-                      }))
-                    }
+                    let oldS = [
+                      ..._selectedService.filter(
+                        (t) => t.pId != x?.id
+                      ),
+                    ];
+                    oldS.push({
+                      pId: x?.id,
+                      cId: y?.id,
+                      price: y?.serviceItemServiceValue,
+                    });
+                    _setselectedService([...oldS]);
                   }}
+                  className={`btn lgn-btn1 ${
+                    _selectedService.map((x) => x.cId).includes(y?.id)
+                      ? "selected-btn"
+                      : ""
+                  }`}
                 >
-                  {intl.formatMessage({ id: "ac62" })}
+                  {y.serviceItemServiceTitle} 
                 </button>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
+      );
+    })}
+  </div>
+   <div className="svc-card">
+    <div>
+      <p>
+        {intl.formatMessage({ id: "ac35" })}:{" "}
+        <strong>
+          {_selectedService
+            .map((x) => x?.price)
+            .reduce((a, b) => parseInt(a) + parseInt(b), 0)} AED
+        </strong>
+      </p>
+      <button
+        className="btn lgn-btn1 selected-btn"
+        onClick={() => {
+          if(_selectedService.length>0)
+          {
+            
+             dispatch(setCurrentBookingAM({
+              serviceItemId:_item?.id,
+              bookerId:User?.id,
+              bookingStatus:"Pending",
+              title:_item?.title,
+              bookingItems:_selectedService.map(b=>{
+                return {
+                  BookingId:_item?.id,
+                  ServiceItemServiceId:b?.pId,
+                  ServiceItemServicePriceId:b?.cId,
+                  Price:b?.price
+                }
+              })
+            }))
+           
+            
+            if(User!=null)
+            {
+              language != undefined
+            ? router.push("/" + Language + "/service/checkout")
+            : router.push("/en-AE/service/checkout");
+            }else
+            {
+              language != undefined
+              ? router.push("/" + Language + "/login")
+              : router.push("/en-AE/login");
+            }
+            
+          }
+          else
+          {
+            dispatch(messageAction({
+              type:3,
+              message:"Please select at least one service"
+            }))
+          }
+        }}
+      >
+        {intl.formatMessage({ id: "ac62" })}
+      </button>
+    </div>
+  </div> 
+</div>
+        </div>
+      </div>
+      <div className="container">
         <div className="mt-5 faq">
           <h3>{intl.formatMessage({ id: "ac47" })}</h3>
           <div className="d-flex mt-4 jusify-content-between flex-c-sm">
@@ -254,3 +234,25 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+
+{/* <div className="d-flex justify-content-between">
+  <div className="d-flex">
+    <div className="mr-">
+      <BsFillStarFill color="#f5b913" />
+    </div>
+    <div className="mx-1">
+      <BsFillStarFill color="#f5b913" />
+    </div>
+    <div className="mx-1">
+      <BsFillStarFill color="#f5b913" />
+    </div>
+    <div className="mx-1">
+      <BsFillStarFill color="#f5b913" />
+    </div>
+    <div className="mx-1">
+      <BsFillStarFill color="white" />
+    </div>
+  </div>
+  <div></div>
+</div> */}

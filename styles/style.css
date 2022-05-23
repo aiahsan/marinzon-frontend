@@ -795,7 +795,7 @@ text-overflow: ellipsis;
   padding: 20px;
   border-radius: 10px;
   margin-top: 20px;
-  box-shadow: 4px 6px 5px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 2px 0px rgb(0 0 0 / 30%);
   height: 100%;
 }
 .faq {
@@ -1047,6 +1047,11 @@ text-overflow: ellipsis;
   margin-bottom: 2rem;
 }
 
+@media (max-width: 842px) {
+  .dnfaks-asme{
+    flex-direction: column;
+  }
+}
 @media (max-width: 767px) {
  body .nmdamcs-anwjdsa {
     justify-content: center!important;
@@ -1252,11 +1257,11 @@ text-overflow: ellipsis;
   }
 
   .selected-btn{
-    background-color: #f5b913!important;
+    background-color: #0068ff!important;
     color: white!important;
-  }
+   }
   .kjadss-dksiamedj  .act{
-    background-color: #f5b913!important;
+    background-color: #0068ff!important;
     color: white!important;
   }
   .kjadss-dksiamedj button{
@@ -2058,4 +2063,39 @@ color: #333333;
   display: flex;
   justify-content: center;
   max-width: 170px;
+}
+.hjkfdas-akwenaw{
+  max-width: 450px;
+  margin-left: 10px;
+  width: 100%;
+}
+.lgn-btn1 {
+  font-size: 12px!important;
+  font-weight: 500!important;
+  padding: 2px 10px!important;
+  margin-right: 10px!important;
+}
+
+.nsdfa-jekaw23{
+  display: flex;
+}
+ 
+.dnfaks-asme
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sajdnw-q2ejnjwd img{
+  width: 100%;
+  border-radius: 16px;
+  margin-right: 10px;
+}
+.sajdnw-q2ejnjwd{
+  max-width: 383px;
+  
+}
+.kdsfmanc30qj2n{
+  max-width: 870px;
+  margin: auto;
 }
