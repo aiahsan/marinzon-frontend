@@ -9,6 +9,10 @@ import * as Message  from './reducers/messsage/idnex';
  import * as ServiceItem  from './reducers/Item/idnex';
  import * as Booking  from './reducers/Booking/idnex';
  import * as CurrentBooking  from './reducers/Currentbooking/idnex';
+ import * as EProducts  from './reducers/EProduct/idnex';
+ import * as EOrders  from './reducers/EOrder/idnex';
+ import * as ECategories  from './reducers/ECategory/idnex';
+ import * as Cart  from './reducers/Cart/idnex';
 
  import * as BookingReview  from './reducers/BookingReview/idnex'; import { combineReducers } from 'redux';
 import thunk from 'redux-thunk'
@@ -24,7 +28,11 @@ import thunk from 'redux-thunk'
     Bookings:Booking.BookingReducer,
     Users:User.UsersReducer,
     Language: User.language,
-    CurrentBooking:CurrentBooking.CurrentBookingReducer
+    CurrentBooking:CurrentBooking.CurrentBookingReducer,
+    EProducts:EProducts.EProductReducer,
+    EOrders:EOrders.EOrderReducer,
+    ECategories:ECategories.ECategoryReducer,
+    Cart:Cart.CartReducer,
 
    });
 
@@ -48,7 +56,7 @@ const makeStore = () => {
 
         const persistConfig = {
             key: 'duchess',
-            whitelist: [ 'User','CurrentBooking'], // make sure it does not clash with server keys
+            whitelist: [ 'User','CurrentBooking','Cart'], // make sure it does not clash with server keys
             storage
         };
 

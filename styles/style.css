@@ -1713,7 +1713,7 @@ filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.075));
 }
 
 .nckdsma-serma{
-  max-width: 780px;
+  max-width: 857px;
   margin-left: auto;
 }
 .ankf-js3eiwne .dropdown-toggle{
@@ -1834,9 +1834,9 @@ width: 30px;
   background-color: #527DD2;
 }
 
-.nkacmsdoe-krr:hover{
+.nkacmsdoe-krr:hover,.nkacmsdoe-krr1{
   background: #FFFFFF;
-  border-bottom: 4px solid #527DD2;
+  border-bottom: 4px solid #527DD2!important;
 }
 .nkacmsdoe-krr p,.profile__info p{
   font-weight: 400;
@@ -2098,4 +2098,47 @@ color: #333333;
 .kdsfmanc30qj2n{
   max-width: 870px;
   margin: auto;
+}
+.cart-lg{
+  position: relative;
+}
+ 
+.nlaksd-ame {
+  position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: #0068ff;
+    font-size: 9px;
+    color: white;
+    z-index: 1111;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+.mnjkdas-aned3e{
+  margin-left: 3%;
+  width: 100%;
+}
+
+.nkacmsdoe-krr1 img{
+  border-radius: 10px;
+}
+.nkacmsdoe-krr1{
+  max-width: 800px;
+}
+.njasknxs-jawems p{
+  margin: 0px;
+  color: black;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.njasknxs-jawems
+{
+  max-width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

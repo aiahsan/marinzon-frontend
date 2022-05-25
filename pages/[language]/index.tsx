@@ -139,6 +139,7 @@ const handleScroll = () => {
               Furniture Cleaning"
               title="Get your sofa, curtain, carpet and mattress professionally..."
                   price="300"
+                   
             />
             <HomeSCard
               icon="b1"

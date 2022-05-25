@@ -135,3 +135,47 @@ export interface ItechStacks {
   label: string;
   value: string;
 }
+
+
+export interface IECategory extends IBase {
+  id?: number;
+  title: string;
+  description: string;
+   isApproved?:boolean;
+}
+
+export interface IEProduct extends IBase {
+  id?: number;
+  eCategoryId: number;
+  title: string;
+  description: string;
+  rDescription: string;
+  price: number;
+  discountPer: number;
+  image: string;
+   isApproved?:boolean;
+   quantity?:number;
+   }
+
+export interface IEOrder extends IBase {
+  id?: number;
+  purchasePrice: number;
+  discountPer: number;
+  deliveryAddress: string;
+  deliveryInstructions : string;
+  bookingStatus : string;
+  orderBy : number;
+  user : any;
+  isApproved?:boolean;
+  ordersItems?:IEOrderItems[]|[]
+}
+
+export interface IEOrderItems extends IBase {
+  id?: number;
+  purchasePrice: number;
+  discountPer: number;
+  orignalPrice: number;
+  eOrderId: number;
+  eProductId:number;
+  eProduct:IEProduct  
+}

@@ -36,6 +36,10 @@ export default ({isHome}:{isHome?:boolean}) => {
   const User = useSelector((x: IReduxStore) => x.User);
   const [currentS, setcurrentS] = React.useState(undefined);
   const dispatch = useDispatch();
+  //@ts-ignore
+  const Carts=useSelector(x=>x.Cart);
+
+  console.log(Carts,"cccc");
   return (
     <>
       {" "}
@@ -134,6 +138,11 @@ export default ({isHome}:{isHome?:boolean}) => {
                       ? router.push("/" + Language + "/services")
                       : router.push("/en-AE/services");
                     }}>Services</Nav.Link>
+                  <Nav.Link   onClick={() => {
+                      language != undefined
+                      ? router.push("/" + Language + "/ecommerce")
+                      : router.push("/en-AE/ecommerce");
+                    }}>E Commerce</Nav.Link>
 
                   {/* <div className="topSearchbar">
                     <div className="w-100">
@@ -146,8 +155,7 @@ export default ({isHome}:{isHome?:boolean}) => {
                       <GoSearch color="white" />
                     </div>
                   </div> */}
-                  <Nav.Link href="#action1">Products</Nav.Link>
-                  <Nav.Link href="#action1">Contact Us</Nav.Link>
+                   <Nav.Link href="#action1">Contact Us</Nav.Link>
                   <Nav.Link onClick={()=>{
                      language != undefined
                      ? router.push("/" + Language + "/about")
@@ -169,9 +177,21 @@ export default ({isHome}:{isHome?:boolean}) => {
                       ? "Log out"
                       : intl.formatMessage({ id: "en8" })}
                   </Nav.Link>
-                  <Nav.Link href="#action1">
+                  <Nav.Link onClick={()=>{
+                     language != undefined
+                     ? router.push("/" + Language + "/cart")
+                     : router.push("/en-AE/cart");
+                  }}  className="cart-lg">
                     <FaOpencart/>
+                      {
+                        Carts.length>0? <div className="nlaksd-ame">
+                        {
+                          Carts?.length
+                        }
+                      </div>:<></>
+                      }
                   </Nav.Link>
+ 
                   <div className="top-bar">
                     <Dropdown>
                       <Dropdown.Toggle variant="success" id="dropdown-basic">

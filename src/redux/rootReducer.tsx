@@ -8,6 +8,11 @@ import * as Message  from './reducers/messsage/idnex';
  import * as Booking  from './reducers/Booking/idnex';
  import * as BookingReview  from './reducers/BookingReview/idnex';
  import * as CurrentBooking  from './reducers/Currentbooking/idnex';
+ import * as EProducts  from './reducers/EProduct/idnex';
+ import * as EOrders  from './reducers/EOrder/idnex';
+ import * as ECategories  from './reducers/ECategory/idnex';
+ import * as Cart  from './reducers/Cart/idnex';
+
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -21,13 +26,18 @@ export const rootReducer = combineReducers({
   BookingReviews:BookingReview.BookingReviewReducer,
   Bookings:Booking.BookingReducer,
   Users:User.UsersReducer,
-  CurrentBooking:CurrentBooking.CurrentBookingReducer
+  CurrentBooking:CurrentBooking.CurrentBookingReducer,
+  EProducts:EProducts.EProductReducer,
+  EOrders:EOrders.EOrderReducer,
+  ECategories:ECategories.ECategoryReducer,
+  Cart:Cart.CartReducer,
+
  });
 
 const persistConfig={
   key:'root',
   storage,
-  whitelist:['User','CurrentBooking']
+  whitelist:['User','CurrentBooking','Cart']
 }
 
 export default persistReducer(persistConfig,rootReducer )

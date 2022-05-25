@@ -54,4 +54,27 @@ Delete_CurrentBooking: "Delete_CurrentBooking",
 
 
 
+Add_ECategory: "Add_ECategory",
+  SET_ECategories: "SET_ECategories",
+  SET_ECategory: "SET_ECategory",
+  Delete_ECategory: "Delete_ECategory",
+
+
+  Add_EProduct: "Add_EProduct",
+SET_EProducts: "SET_EProducts",
+SET_EProduct: "SET_EProduct",
+Delete_EProduct: "Delete_EProduct",
+
+
+Add_EOrder: "Add_EOrder",
+SET_EOrders: "SET_EOrders",
+SET_EOrder: "SET_EOrder",
+Delete_EOrder: "Delete_EOrder",
+
+
+Add_Cart: "Add_Cart",
+SET_Carts: "SET_Carts",
+SET_Cart: "SET_Cart",
+Delete_Cart: "Delete_Cart",
+
 };
