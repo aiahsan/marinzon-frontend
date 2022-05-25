@@ -2,7 +2,11 @@ import React from "react";
 import { ImageUrl } from "../../utiles/baseUrl";
 import Icons from "../icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addCartAM, deleteCartAM, updateCartAM } from "../../redux/actionMethodes/Cart";
+import {
+  addCartAM,
+  deleteCartAM,
+  updateCartAM,
+} from "../../redux/actionMethodes/Cart";
 import { IEProduct } from "../../interfaces/data/objects";
 import { HiOutlineMinusCircle, HiOutlinePlusCircle } from "react-icons/hi";
 export default ({
@@ -76,17 +80,21 @@ export default ({
             <div className="d-flex justify-content-end mt-2">
               <div className="w-100  njasknxs-jawems">
                 <div>
-                  <button className="btn" onClick={()=>{
-                      if(product?.quantity>1)
-                      {
-                            dispatch(updateCartAM({...product,
-                            quantity:parseInt(product?.quantity)-1}))
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      if (product?.quantity > 1) {
+                        dispatch(
+                          updateCartAM({
+                            ...product,
+                            quantity: parseInt(product?.quantity) - 1,
+                          })
+                        );
+                      } else {
+                        dispatch(deleteCartAM(product));
                       }
-                      else
-                      {
-                          dispatch(deleteCartAM(product));
-                      }
-                  }}>
+                    }}
+                  >
                     <HiOutlineMinusCircle />
                   </button>
                 </div>
@@ -94,10 +102,17 @@ export default ({
                   <p> {product?.quantity}</p>
                 </div>
                 <div>
-                  <button className="btn" onClick={()=>{
-                        dispatch(updateCartAM({...product,
-                            quantity:parseInt(product?.quantity)+1}))
-                  }}>
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      dispatch(
+                        updateCartAM({
+                          ...product,
+                          quantity: parseInt(product?.quantity) + 1,
+                        })
+                      );
+                    }}
+                  >
                     <HiOutlinePlusCircle />
                   </button>
                 </div>
