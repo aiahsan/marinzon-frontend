@@ -10,7 +10,7 @@ import Topbar from "../../../src/components/header/Topbar";
 import Heading from "../../../src/components/headings/Heading";
 import Footer from "../../../src/components/footer";
 import styles from "../styles/Home.module.css";
-import CategoryAccordian from "../../../src/components/generic/CategoryAccordian";
+import CategoryAccordian from "../../../src/components/generic/CategoryAccordianMb";
 import ProductCard from "../../../src/components/cards/ProductCard";
 import Searchbar from "../../../src/components/generic/Searchbar";
 import { useEffect } from "react";
@@ -27,13 +27,13 @@ import { GetServices } from "../../../src/functions/Services";
 import { GetCategory } from "../../../src/functions/Categories";
 import { GoSearch } from "react-icons/go";
 import EProductCard from "../../../src/components/cards/EProductCard";
-import { GetEProduct } from "../../../src/functions/EProduct";
+import { GetEProduct, GetProductsByCategoryID } from "../../../src/functions/EProduct";
+import { GetECategory } from "../../../src/functions/ECategories";
 
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
-  const services = useSelector((x: IReduxStore) => x.Services);
-  const categoreis = useSelector((x: IReduxStore) => x.Categories);
+   const categoreis = useSelector((x: IReduxStore) => x.ECategories);
   const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
 
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const Home: NextPage = () => {
           ?.split(" ")
           ?.pop()
       );
-      dispatch(GetItemsByCategoryID(idGet));
+      dispatch(GetProductsByCategoryID(idGet));
 
       //@ts-ignore
       _setfilters({
@@ -69,17 +69,12 @@ const Home: NextPage = () => {
    
   }, [router.query]);
   React.useEffect(()=>{
-    console.log(categoreis);
-    if(categoreis.length<=0)
+     if(categoreis.length<=0)
     {
-       dispatch(GetCategory())
+       dispatch(GetECategory())
 
     }
-    if(services.length<=0)
-    {
-      dispatch(GetServices());
 
-    }
   },[ITEMS])
   // React.useEffect(() => {
   //   if (_filters.categoryId != undefined) {

@@ -28,7 +28,7 @@ export default ({
   const dispatch = useDispatch();
   return (
     <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100">
-      <div>
+      <div className="d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center">
           <div>
             {price && product ? (
@@ -50,75 +50,78 @@ export default ({
             <div>
               <h5>{head}</h5>
               <p>{title}</p>
-            </div>
-            <div className="w-100">
-              {price != undefined ? (
-                <div className="d-flex justify-content-between hjdkf-serjferf nckdsma-serma">
-                  <div>
-                    <h3>{price}-AED</h3>
+              <div className="w-100">
+                {price != undefined ? (
+                  <div className="d-flex justify-content-between hjdkf-serjferf nckdsma-serma">
+                    <div>
+                      <h3>{price}-AED</h3>
+                    </div>
                   </div>
-                  <div>
-                    <button
-                      className="njsa-an3edwaue3 btn"
-                      onClick={() => {
-                        if (product != undefined) {
-                          if (Carts.includes(product.id))
-                            dispatch(deleteCartAM(product));
-                          else dispatch(addCartAM({ ...product, quantity: 1 }));
-                        }
-                      }}
-                    >
-                      {Carts.includes(product?.id) ? "Remove from" : "Add To"}{" "}
-                      Cart
-                    </button>
-                  </div>
-                </div>
-              ) : (
-                <div></div>
-              )}
-            </div>
-            <div className="d-flex justify-content-end mt-2">
-              <div className="w-100  njasknxs-jawems">
-                <div>
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      if (product?.quantity > 1) {
-                        dispatch(
-                          updateCartAM({
-                            ...product,
-                            quantity: parseInt(product?.quantity) - 1,
-                          })
-                        );
-                      } else {
-                        dispatch(deleteCartAM(product));
-                      }
-                    }}
-                  >
-                    <HiOutlineMinusCircle />
-                  </button>
-                </div>
-                <div>
-                  <p> {product?.quantity}</p>
-                </div>
-                <div>
-                  <button
-                    className="btn"
-                    onClick={() => {
-                      dispatch(
-                        updateCartAM({
-                          ...product,
-                          quantity: parseInt(product?.quantity) + 1,
-                        })
-                      );
-                    }}
-                  >
-                    <HiOutlinePlusCircle />
-                  </button>
-                </div>
+                ) : (
+                  <div></div>
+                )}
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <div className="d-flex justify-content-end mt-2">
+            <div className="w-100  njasknxs-jawems">
+              <div>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    if (product?.quantity > 1) {
+                      dispatch(
+                        updateCartAM({
+                          ...product,
+                          quantity: parseInt(product?.quantity) - 1,
+                        })
+                      );
+                    } else {
+                      dispatch(deleteCartAM(product));
+                    }
+                  }}
+                >
+                  <HiOutlineMinusCircle />
+                </button>
+              </div>
+              <div>
+                <p> {product?.quantity}</p>
+              </div>
+              <div>
+                <button
+                  className="btn"
+                  onClick={() => {
+                    dispatch(
+                      updateCartAM({
+                        ...product,
+                        quantity: parseInt(product?.quantity) + 1,
+                      })
+                    );
+                  }}
+                >
+                  <HiOutlinePlusCircle />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div>
+      <button
+        className="njsa-an3edwaue3 btn mt-3"
+        onClick={() => {
+          if (product != undefined) {
+            if (Carts.includes(product.id))
+              dispatch(deleteCartAM(product));
+            else dispatch(addCartAM({ ...product, quantity: 1 }));
+          }
+        }}
+      >
+        {Carts.includes(product?.id) ? "Remove from" : "Add To"}{" "}
+        Cart
+      </button>
+    </div>
+
         </div>
       </div>
     </div>

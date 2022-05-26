@@ -196,6 +196,12 @@ const DeleteEProduct = async (token: string,data:IEProduct) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
+const GetEProductByCategoryId = async (token: string,userId?:string,categoryId?:number) => {
+  return await api.get("/EProduct/getbycategoryId?"+(userId!=undefined?`userId=${userId}`:""+(`categoryId=${categoryId}`)),undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
+};
 const GetEOrder = async (token: string) => {
   return await api.get("/EOrder",undefined,{
     headers: { Authorization: `Bearer ${token}` },
@@ -225,6 +231,12 @@ const DeleteEOrder = async (token: string,data:IEOrder) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 }
+const GetProductById = async (token: string,itemId?:string) => {
+   return await api.get("/EProduct/GetProductById?itemId="+itemId,undefined,{
+    headers: { Authorization: `Bearer ${token}` },
+  });
+};
+
 export const repository = {
   login,
   register,
@@ -268,5 +280,7 @@ DeleteEProduct,
 PostEOrder,
 UpdateEOrder,
 UpdateEOrderStatus,
-DeleteEOrder
+DeleteEOrder,
+GetEProductByCategoryId,
+GetProductById
 };

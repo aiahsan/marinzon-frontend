@@ -173,3 +173,43 @@ export function DeleteEProduct(dataP:IEProduct) {
     })();
   };
 }
+export function GetProductsByCategoryID(categoryId:number) {
+  return function (dispatch: any, getState: any): any {
+    (async () => {
+      try {
+         dispatch(loadingAction(true));
+        const isAdimn=getState()?.User?.isAdmin;
+          const { status, data }: any = await repository
+          .GetEProductByCategoryId(getState().User?.token || "",isAdimn==false?getState().User?.id:undefined,categoryId)
+          .then((x) => x);
+        if (status == 200 && data?.success == true) {
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 1,
+              message: data?.message,
+            })
+          );
+          dispatch(setEProductAM(data?.data));
+          } else {
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 3,
+              message:
+                data?.message || "Something wen't wrong contact support",
+            })
+          );
+        }
+      } catch (e) {
+        dispatch(loadingAction(false));
+        dispatch(
+          messageAction({
+            type: 3,
+            message: e as string,
+          })
+        );
+      }
+    })();
+  };
+}

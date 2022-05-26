@@ -39,12 +39,14 @@ const App = () => {
                   },
                 }}
               >
-               <HomeSCard  icon="b1"
+              <a>
+              <HomeSCard  icon="b1"
               head={x.title}
               title={x.description}
               price={x.price.toString()}
               product={x}
               />
+              </a>
               </Link>
             </>
           ))}

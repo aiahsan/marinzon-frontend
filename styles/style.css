@@ -2125,10 +2125,22 @@ color: #333333;
 
 .nkacmsdoe-krr1 img{
   border-radius: 10px;
+  max-width: 150px;
+  height: auto;
+  width: 100%;
+}
+.nkacmsdoe-krr1 h5{
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #555555;
+}
+  .nkacmsdoe-krr1 p,.nkacmsdoe-krr1 h5{
+  margin: 0px;
 }
 .nkacmsdoe-krr1{
-  max-width: 800px;
+  max-width: 700px;
   margin-bottom: 20px;
+  padding: 10px!important;
 }
 .njasknxs-jawems p{
   margin: 0px;
