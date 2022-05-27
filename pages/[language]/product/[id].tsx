@@ -25,6 +25,8 @@ import { setCurrentBookingAM } from "../../../src/redux/actionMethodes/Currentbo
 import { IReduxStore } from "../../../src/interfaces/data/reduxStore";
 import { bookingStatus } from "../../../src/utiles/constants";
 import Heading1 from "../../../src/components/headings/Heading1";
+import Link from "next/link";
+import { addCartAM, deleteCartAM } from "../../../src/redux/actionMethodes/Cart";
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
@@ -34,7 +36,9 @@ const Home: NextPage = () => {
   const dispatch = useDispatch();
   const [_currentService, _setcurrentService] = React.useState(undefined);
   const [_item, _setcurrentServiced] = React.useState(undefined);
-  const User=useSelector((x:IReduxStore)=>x.User)
+  const User=useSelector((x:IReduxStore)=>x.User);
+  const Carts=useSelector((x:IReduxStore)=>x.Cart);
+
    const [_selectedService, _setselectedService] = React.useState([]);
   React.useEffect(() => {
     if (router.query?.dataqurey) {
@@ -114,18 +118,45 @@ const Home: NextPage = () => {
 :<></>  
         }
       </p>
-      <button
+      
+  <button
         className="btn lgn-btn1 selected-btn"
+         onClick={()=>{
+            if(_item!=undefined)
+          {
+
+            //@ts-ignore
+              if(Carts.map(x=>x.id).includes(_item.id))
+              dispatch(deleteCartAM(_item))
+
+              else
+              {
+                //@ts-ignore
+                dispatch(addCartAM({..._item,  quantity:1}))
          
+              }
+            }
+         }}
       >
-        Add to cart
+       {Carts.map(x=>x.id).includes(_item?.id)?"Remove from":"Add To"} cart
       </button>
-      <button
+ 
+      <Link href={{
+  pathname:
+    Language != undefined
+      ? "/" + Language + "/checkout"
+      : "/en-AE/checkout",
+ 
+}}>
+    <button
         className="btn lgn-btn1 selected-btn"
          
       >
         Check Out
       </button>
+</Link>
+      
+    
     </div>
   </div> 
 </div>

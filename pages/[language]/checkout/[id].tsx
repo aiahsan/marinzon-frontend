@@ -33,7 +33,6 @@ import EProductCard from "../../../src/components/cards/EProductCard";
 import { GetEProduct } from "../../../src/functions/EProduct";
 import { ImageUrl } from "../../../src/utiles/baseUrl";
 import HomeSCard from "../../../src/components/cards/cartSCard";
-import Link from "next/link";
 import { GetSingleECoupon } from "../../../src/functions/ECoupons";
 import { setECouponsAM } from "../../../src/redux/actionMethodes/ECoupons";
 
@@ -44,7 +43,7 @@ const Home: NextPage = () => {
   const categoreis = useSelector((x: IReduxStore) => x.Categories);
   const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
   const Cart = useSelector((x: IReduxStore) => x.Cart);
-  const Language = useSelector((x:any) => x.Language);
+  const [_total,_setTotal]=React.useState(0);
   const Copupns=useSelector((x:IReduxStore)=>x.ECoupons);
   const [_coupen,_setCoupon]=React.useState("")
   const dispatch = useDispatch();
@@ -52,34 +51,24 @@ const Home: NextPage = () => {
     categoryId: undefined,
     serviceId: undefined,
   });
-  const [_total,_setTotal]=React.useState(0);
 
- 
-  // React.useEffect(() => {
-  //   if (_filters.categoryId != undefined) {
-  //     //@ts-ignore
-  //     dispatch(GetItemsByCategoryID(_filters.categoryId));
-  //   } else if (_filters.serviceId != undefined) {
-  //     //@ts-ignore
-  //     dispatch(GetItemsByServiceID(_filters.serviceId));
-  //   }
-  // }, [_filters]);
-React.useEffect(()=>{
-  let total=0;
-  Cart.map(x=>{
-    if(x.discountPer&&x.discountPer>0)
-    {
-      total+=((x?.price - (x?.price * x?.discountPer / 100))*x?.quantity);
-    }
-    else
-    {
-      total+=(((x?.price))*x?.quantity);
+  React.useEffect(()=>{
+    let total=0;
+    Cart.map(x=>{
+      if(x.discountPer&&x.discountPer>0)
+      {
+        total+=((x?.price - (x?.price * x?.discountPer / 100))*x?.quantity);
+      }
+      else
+      {
+        total+=(((x?.price))*x?.quantity);
+  
+      }
+  
+    });
+    _setTotal(total);
+  },[Cart])
 
-    }
-
-  });
-  _setTotal(total);
-},[Cart])
   React.useEffect(() => {}, []);
   return (
     <div>
@@ -88,7 +77,7 @@ React.useEffect(()=>{
       </div>
       <div className="container d-flex mt-2 justify-content-center flex-column align-items-center ">
         <div className="mnakvd-erre32e">
-          <h4 className="mb-4">Your Shopping Cart</h4>
+          <h4 className="mb-4">Checkout</h4>
         </div>
         <div className="topSearchbar">
           <div className="w-100">
@@ -102,12 +91,46 @@ React.useEffect(()=>{
       <div className="container mt-5">
         <div className="d-flex justify-content-between">
           
-        <div className="mx-3 w-100"> 
+        <div className="w-95">
+        <div className="w-100"> 
         {
           Cart.map(x=>{
-             return <HomeSCard image={x.image} product={x} title={x.description} head={x.title} price={`${x.price} x ${x?.quantity} (${x.price*x?.quantity})`} />
+             return <HomeSCard isCheckOut={true} image={x.image} product={x} title={x.description} head={x.title} price={`${x.price} x ${x?.quantity} (${x.price*x?.quantity})`} />
           })
         }
+        
+        </div>
+        <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100 p-3">
+          <h5>Shipping Address</h5>
+          <h6>Plese select booking address</h6>
+          <hr/>
+        
+          
+       
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center">
+              <input type="radio"/>
+              <h6 className="m-0 mx-2">Home</h6>
+            </div>
+            <div className="d-flex align-items-center">
+            <h6>XYZ Address</h6>
+            <p className="mx-2 hj-na3ed8b2e2e">Edit</p>
+            </div>
+          </div>
+          <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex align-items-center">
+              <input type="radio"/>
+              <h6 className="m-0 mx-2">Office</h6>
+            </div>
+            <div className="d-flex align-items-center">
+            <h6>XYZ Address</h6>
+            <p className="mx-2 hj-na3ed8b2e2e">Edit</p>
+            </div>
+          </div>
+         
+        
+         
+        </div>
         
         </div>
         <div className="w-100 max-aldsjmsae">
@@ -142,26 +165,9 @@ React.useEffect(()=>{
             <h6>{Cart.length}</h6>
             </div>
           </div>
-          <div className="d-flex justify-content-between align-items-center">
-            <div>
-              <h5>Promotions:</h5>
-             
-            </div>
-             
-          </div>
+           
          
-          <div className="d-flex justify-content-between align-items-center">
-            
-            <div className="w-100 d-flex jkasd-jmewks">
-              <input value={_coupen} onChange={(e)=>{
-              _setCoupon(e.target.value)
-                }} type="text" className="w-100 form-control"/>
-              <button className="btn njsa-an3edwaue3" onClick={()=>{
-                dispatch(GetSingleECoupon(_coupen))
-              }}>Apply</button>
-            </div>
-            
-          </div>
+          
           <div className="d-flex justify-content-between align-items-center">
             <div>
               <h6>Total Discount</h6>
@@ -184,12 +190,13 @@ React.useEffect(()=>{
             }-AED</h6>
             </div>
           </div>
+                  <div className="d-flex justify-content-between align-items-center">
+              <h5>Applied Coupon</h5>
+              </div>
           <div className="d-flex justify-content-between align-items-center">
             <div>
               {
-                Copupns.map(x=>  <h6><MdCancel onClick={()=>{
-                   dispatch(setECouponsAM([]));
-                }}/> {x.couponCode}</h6>)
+                Copupns.map(x=>  <h6>  {x.couponCode}</h6>)
               }
             
              
@@ -214,22 +221,11 @@ React.useEffect(()=>{
              
           </div>
           <div className="">
-            {/* <button className="njsa-an3edwaue3 btn mt-3 w-100"></button> */}
-            <Link
-href={{
-  pathname:
-    Language != undefined
-      ? "/" + Language + "/checkout"
-      : "/en-AE/checkout",
- 
-}}
->
-<a className="njsa-an3edwaue3 btn mt-3 w-100">
-Check Out
-    </a>
-    </Link>
+            <button className="njsa-an3edwaue3 btn mt-3 w-100">Place Order</button>
           </div>
         </div>
+       
+       
         <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100 p-3">
           <h5>Shipping Information</h5>
           <h6>The total cost consist of the tax, insurence and the shipping charge</h6>
@@ -253,7 +249,7 @@ Check Out
           <div className="d-flex justify-content-between align-items-center mt-3">
             <div className="d-flex align-items-center">
               <h6>
-                <IoWalletSharp size={80}/>
+              <IoWalletSharp size={70} />
               </h6>
               <div className="akssdcasj-2nwjs">
                 <h3>Faulty products, money back guarantee</h3>

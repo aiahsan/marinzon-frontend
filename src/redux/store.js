@@ -13,6 +13,7 @@ import * as Message  from './reducers/messsage/idnex';
  import * as EOrders  from './reducers/EOrder/idnex';
  import * as ECategories  from './reducers/ECategory/idnex';
  import * as Cart  from './reducers/Cart/idnex';
+ import * as ECoupons  from './reducers/ECoupons/idnex';
 
  import * as BookingReview  from './reducers/BookingReview/idnex'; import { combineReducers } from 'redux';
 import thunk from 'redux-thunk'
@@ -33,6 +34,7 @@ import thunk from 'redux-thunk'
     EOrders:EOrders.EOrderReducer,
     ECategories:ECategories.ECategoryReducer,
     Cart:Cart.CartReducer,
+    ECoupons:ECoupons.ECouponsReducer,
 
    });
 

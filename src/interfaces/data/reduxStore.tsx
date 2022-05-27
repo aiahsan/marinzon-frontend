@@ -1,4 +1,4 @@
-import { IBooking, IBookingReview, ICategory, IECategory, IEOrder, IEProduct, IItem, ILogin,  IService } from "./objects";
+import { IBooking, IBookingReview, ICategory, IECategory, IECoupons, IEOrder, IEProduct, IItem, ILogin,  IService } from "./objects";
 export interface IReduxStore {
   User: ILogin | null;
   Users: ILogin[] | [];
@@ -14,6 +14,7 @@ export interface IReduxStore {
     EOrders:IEOrder[] | [];
     ECategories:IECategory[] | [];
     Cart:IEProduct[] | [];
+    ECoupons:IECoupons[] | [];
 
  }
 

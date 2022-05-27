@@ -16,6 +16,7 @@ export default ({
   price,
   image,
   product,
+  isCheckOut
 }: {
   icon: string;
   head: string;
@@ -23,9 +24,11 @@ export default ({
   price?: string;
   image?: string;
   product?: IEProduct;
+  isCheckOut?:boolean
 }) => {
   const Carts = useSelector((x) => x.Cart).map((x) => x.id);
   const dispatch = useDispatch();
+  console.log(product,"pp")
   return (
     <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100">
       <div className="d-flex justify-content-between align-items-center">
@@ -50,12 +53,22 @@ export default ({
             <div>
               <h5>{head}</h5>
               <p>{title}</p>
+              <p>{
+                      product&&product?.discountPer&&product.discountPer>0?<strong>Discount On Product: {product.discountPer} %</strong>:<></>
+                    }</p>
               <div className="w-100">
                 {price != undefined ? (
                   <div className="d-flex justify-content-between hjdkf-serjferf nckdsma-serma">
-                    <div>
-                      <h3>{price}-AED</h3>
-                    </div>
+                    
+                    <div className="d-flex">
+                      <h3  style={{
+                    textDecoration: product?.discountPer&&product?.discountPer>0?'line-through':"none"}}>{price}-AED</h3>
+                      
+                        {
+                          product&&product?.discountPer&&product.discountPer>0?<strong><sup>{`${product?.price - (product?.price * product?.discountPer / 100)} x ${product?.quantity} (${(product?.price - (product?.price * product?.discountPer / 100))*product?.quantity})`}</sup></strong>
+                  :<></>
+                        }
+                        </div>
                   </div>
                 ) : (
                   <div></div>
@@ -66,7 +79,9 @@ export default ({
         </div>
         <div>
           <div className="d-flex justify-content-end mt-2">
-            <div className="w-100  njasknxs-jawems">
+           {
+             isCheckOut&&isCheckOut==true?<></>:<>
+              <div className="w-100  njasknxs-jawems">
               <div>
                 <button
                   className="btn"
@@ -105,9 +120,13 @@ export default ({
                 </button>
               </div>
             </div>
+             </>
+           }
           </div>
           <div>
-      <button
+      {
+        isCheckOut&&isCheckOut==true?<></>:<>
+          <button
         className="njsa-an3edwaue3 btn mt-3"
         onClick={() => {
           if (product != undefined) {
@@ -120,6 +139,9 @@ export default ({
         {Carts.includes(product?.id) ? "Remove from" : "Add To"}{" "}
         Cart
       </button>
+        </>
+      }
+    
     </div>
 
         </div>

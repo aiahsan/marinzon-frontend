@@ -12,6 +12,7 @@ import * as Message  from './reducers/messsage/idnex';
  import * as EOrders  from './reducers/EOrder/idnex';
  import * as ECategories  from './reducers/ECategory/idnex';
  import * as Cart  from './reducers/Cart/idnex';
+ import * as ECoupons  from './reducers/ECoupons/idnex';
 
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -31,13 +32,14 @@ export const rootReducer = combineReducers({
   EOrders:EOrders.EOrderReducer,
   ECategories:ECategories.ECategoryReducer,
   Cart:Cart.CartReducer,
+  ECoupons:ECoupons.ECouponsReducer,
 
  });
 
 const persistConfig={
   key:'root',
   storage,
-  whitelist:['User','CurrentBooking','Cart']
+  whitelist:['User','CurrentBooking','Cart','ECoupons']
 }
 
 export default persistReducer(persistConfig,rootReducer )

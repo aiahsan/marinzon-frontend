@@ -77,4 +77,13 @@ SET_Carts: "SET_Carts",
 SET_Cart: "SET_Cart",
 Delete_Cart: "Delete_Cart",
 
+
+Add_ECoupons: "Add_ECoupons",
+SET_ECouponss: "SET_ECouponss",
+SET_ECoupons: "SET_ECoupons",
+Delete_ECoupons: "Delete_ECoupons",
+
+
+
+
 };
