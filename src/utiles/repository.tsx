@@ -209,7 +209,7 @@ const GetEOrder = async (token: string) => {
 };
 
 
-const PostEOrder = async (token: string,data:IEOrder) => {
+const PostEOrder = async (token: string,data:any) => {
   return await api.post("/EOrder",data,{
     headers: { Authorization: `Bearer ${token}` },
   });

@@ -18,7 +18,7 @@ export default function App ({
         className="form-control mt-2"
         type={type}
         placeholder={placeholder}
-      />:<textarea rows={8} {...getFieldProps(feildName)}
+      />:<textarea className="form-control" rows={8} {...getFieldProps(feildName)}
        placeholder={placeholder}></textarea>
       }
       

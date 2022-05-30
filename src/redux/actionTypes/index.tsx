@@ -84,6 +84,10 @@ SET_ECoupons: "SET_ECoupons",
 Delete_ECoupons: "Delete_ECoupons",
 
 
+Add_Address: "Add_Address",
+SET_Addresss: "SET_Addresss",
+SET_Address: "SET_Address",
+Delete_Address: "Delete_Address",
 
 
 };

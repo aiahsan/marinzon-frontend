@@ -13,6 +13,7 @@ import * as Message  from './reducers/messsage/idnex';
  import * as ECategories  from './reducers/ECategory/idnex';
  import * as Cart  from './reducers/Cart/idnex';
  import * as ECoupons  from './reducers/ECoupons/idnex';
+ import * as Address  from './reducers/Address/idnex';
 
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -33,13 +34,14 @@ export const rootReducer = combineReducers({
   ECategories:ECategories.ECategoryReducer,
   Cart:Cart.CartReducer,
   ECoupons:ECoupons.ECouponsReducer,
+  Address:Address.AddressReducer,
 
  });
 
 const persistConfig={
   key:'root',
   storage,
-  whitelist:['User','CurrentBooking','Cart','ECoupons']
+  whitelist:['User','CurrentBooking','Cart','ECoupons','Address']
 }
 
 export default persistReducer(persistConfig,rootReducer )

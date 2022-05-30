@@ -190,3 +190,9 @@ export interface IECoupons extends IBase {
   eCouponsAvailedBy?: any;  
   totalCouponsLeft?:Number;
 }
+
+export interface IAddress extends IBase {
+  id?: number;
+  address:string;
+  name:string;
+}

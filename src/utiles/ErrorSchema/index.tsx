@@ -8,6 +8,11 @@ export const DisplayingErrorMessagesLoginSchema = Yup.object().shape({
       "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
     ),
 });
+export const DisplayingErrorMessagesAddressSchema = Yup.object().shape({
+  name: Yup.string().required("Required") ,
+  address: Yup.string().required("Required") ,
+
+});
 export const DisplayingErrorMessagesSignupSchema = Yup.object().shape({
   userName: Yup.string().required("Required").email() || Yup.string().required("Required") ,
   password: Yup.string()

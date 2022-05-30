@@ -1,23 +1,12 @@
 import React from "react";
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-import CategoryCard from "../../../src/components/cards/CategoryCard";
-import EasyCard from "../../../src/components/cards/EasyCard";
-import ServiceCard from "../../../src/components/cards/ServiceCard";
-import {MdCancel} from 'react-icons/md'
+ 
 import {AiOutlineCodeSandbox} from 'react-icons/ai'
 import {IoWalletSharp} from 'react-icons/io5'
 import Navbar from "../../../src/components/header/Navbar2";
-import Topbar from "../../../src/components/header/Topbar";
-import Heading from "../../../src/components/headings/Heading";
+ 
 import Footer from "../../../src/components/footer";
-import styles from "../styles/Home.module.css";
-import CategoryAccordian from "../../../src/components/generic/CategoryAccordian";
-import ProductCard from "../../../src/components/cards/ProductCard";
-import Searchbar from "../../../src/components/generic/Searchbar";
-import { useEffect } from "react";
-import router, { useRouter } from "next/router";
+ import router, { useRouter } from "next/router";
 import { useIntl } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { IReduxStore } from "../../../src/interfaces/data/reduxStore";
@@ -35,18 +24,33 @@ import { ImageUrl } from "../../../src/utiles/baseUrl";
 import HomeSCard from "../../../src/components/cards/cartSCard";
 import { GetSingleECoupon } from "../../../src/functions/ECoupons";
 import { setECouponsAM } from "../../../src/redux/actionMethodes/ECoupons";
+import AddressForm from "../../../src/components/forms/AddressForm";
+import { deleteAddressAM } from "../../../src/redux/actionMethodes/Address";
+import { IAddress } from "../../../src/interfaces/data/objects";
+import { messageAction } from "../../../src/redux/actionMethodes/message";
+import { repository } from "../../../src/utiles/repository";
+import { setCartAM } from "../../../src/redux/actionMethodes/Cart";
+import { loadingAction } from "../../../src/redux/actionMethodes/loader";
 
 const Home: NextPage = () => {
   const intl = useIntl();
-  const router = useRouter();
+  const router1 = useRouter();
   const services = useSelector((x: IReduxStore) => x.Services);
   const categoreis = useSelector((x: IReduxStore) => x.Categories);
   const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
   const Cart = useSelector((x: IReduxStore) => x.Cart);
+  const Address = useSelector((x: IReduxStore) => x.Address);
   const [_total,_setTotal]=React.useState(0);
   const Copupns=useSelector((x:IReduxStore)=>x.ECoupons);
-  const [_coupen,_setCoupon]=React.useState("")
+  const User=useSelector((x:IReduxStore)=>x.User);
+  const [_coupen,_setCoupon]=React.useState("");
+  const [_currentAddress,_setcurrentAddress]=React.useState<undefined | IAddress>(undefined);
   const dispatch = useDispatch();
+  const [showForm,setshowform]=React.useState(false);
+  const [selectedAddress,setselectedAddress]=React.useState<IAddress | undefined>(undefined);
+  const [instructions,setinstructions]=React.useState("");
+  //@ts-ignore
+  const Language = useSelector((x) => x.Language);
   const [_filters, _setfilters] = React.useState({
     categoryId: undefined,
     serviceId: undefined,
@@ -107,31 +111,59 @@ const Home: NextPage = () => {
         
           
        
-          <div className="d-flex justify-content-between align-items-center">
+          {
+            showForm==false? <button className="njsa-an3edwaue3 btn mt-3" onClick={()=>{
+              _setcurrentAddress(undefined);
+                setshowform(true);
+    
+              }}>Add New Address</button>:<></>
+          }
+        {
+          showForm==true?            <AddressForm setData={_setcurrentAddress} data={_currentAddress} setshowform={setshowform}/>
+:<></>
+        }
+          {
+            Address.map(x=>  <div className="d-flex justify-content-between align-items-center">
+
+             
             <div className="d-flex align-items-center">
-              <input type="radio"/>
-              <h6 className="m-0 mx-2">Home</h6>
+              <input onClick={()=>{
+                setselectedAddress(x);
+              }} type="radio" name="address" value={x.address}/>
+              <h6 className="m-0 mx-2">{x.name}</h6>
             </div>
             <div className="d-flex align-items-center">
-            <h6>XYZ Address</h6>
-            <p className="mx-2 hj-na3ed8b2e2e">Edit</p>
+            <h6>{x.address}</h6>
+            <p onClick={()=>{
+            _setcurrentAddress(x);
+            setshowform(true);
+            }} className="mx-2 hj-na3ed8b2e2e">Edit</p>
+            <p onClick={()=>{
+              dispatch(deleteAddressAM(x))
+            }} className="mx-2 hj-na3ed8b2e2e">Remove</p>
             </div>
-          </div>
-          <div className="d-flex justify-content-between align-items-center">
-            <div className="d-flex align-items-center">
-              <input type="radio"/>
-              <h6 className="m-0 mx-2">Office</h6>
-            </div>
-            <div className="d-flex align-items-center">
-            <h6>XYZ Address</h6>
-            <p className="mx-2 hj-na3ed8b2e2e">Edit</p>
-            </div>
-          </div>
+          </div>)
+          }
          
         
          
         </div>
+        <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100 p-3">
+          <h5>Delivery Instructions</h5>
+          <h6>Add delivery instructions</h6>
+          <hr/>
+          <textarea value={instructions} onChange={(e)=>{
+              setinstructions(e.target.value);
+          }} placeholder="Delivery instructions" className="form-control">
+
+          </textarea>
+          
+       
+         
         
+        
+         
+        </div>
         </div>
         <div className="w-100 max-aldsjmsae">
         <div className="nkacmsdoe-krr nkacmsdoe-krr1 w-100 p-3">
@@ -221,7 +253,72 @@ const Home: NextPage = () => {
              
           </div>
           <div className="">
-            <button className="njsa-an3edwaue3 btn mt-3 w-100">Place Order</button>
+            <button className="njsa-an3edwaue3 btn mt-3 w-100" onClick={()=>{
+              if(selectedAddress!=undefined)
+              {
+                  var Obj={
+                    deliveryAddress:selectedAddress.address,
+                    deliveryInstructions:instructions.trim()!=""?instructions:"No Instructions",
+                    discountPer:Copupns[0]?.totalDiscount||0,
+                    recordUserId:User?.id,
+                    OrderBy:User?.id,
+                    orignalOrderPrice:_total,
+                    //@ts-ignore
+                    purchasePrice:Copupns.length>0?_total-(_total*Copupns[0].totalDiscount/100):_total,
+                    orderNumber :"#mrz-o-"+Date.now().toString(),
+                    vocherId:Copupns.length>0?Copupns[0].id:undefined,
+                    ordersItems:Cart.map(x=>{
+                      return {
+                        orignalPrice:x.price,
+                        purchasePrice:x?.discountPer&&x?.discountPer>0?x.price-(x.price*x?.discountPer/100):x?.price,
+                        discountPer:x.discountPer,
+                        eProductId:x.id,
+                        quanity:x.quantity,
+                        eOrderId:"0",
+                        subTotalOfProduct:(x?.quantity||1)*(x?.discountPer&&x?.discountPer>0?x.price-(x.price*x?.discountPer/100):x?.price)
+                      }
+                    })
+                  };
+                   try{
+                    (async ()=>{
+                      dispatch(loadingAction(true))
+                     const {data,status}:any= await repository.PostEOrder(User?.token||"",Obj);
+                        if(status==200 && data.success==true)
+                        {
+                          dispatch(setECouponsAM([]));
+                          dispatch(setCartAM([]));
+                          dispatch(loadingAction(false))
+                          router1.push({
+                            pathname:  Language != undefined
+                            ? "/" + Language + "/thankyou"
+                            : "/en-AE/thankyou",
+                            query: {orderNumber:data?.data?.orderNumber},
+                        
+                          })       
+                        }
+                        else
+                        {
+                          dispatch(loadingAction(false))
+                          dispatch(messageAction({type:3,message:data?.message || "Something wen't wrong please contact customer support"}))
+                        }
+                    })()
+                  }
+                  catch(e)
+                  {
+                    dispatch(loadingAction(false))
+                    dispatch(messageAction({type:3,message:"Something wen't wrong please contact customer support"}))
+                             }
+               }
+              else
+
+              {
+                dispatch(messageAction({
+                  type:3,
+                  message:"Please select delivery address"
+              }))
+              }
+
+            }}>Place Order</button>
           </div>
         </div>
        

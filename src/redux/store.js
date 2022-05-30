@@ -14,6 +14,7 @@ import * as Message  from './reducers/messsage/idnex';
  import * as ECategories  from './reducers/ECategory/idnex';
  import * as Cart  from './reducers/Cart/idnex';
  import * as ECoupons  from './reducers/ECoupons/idnex';
+ import * as Address  from './reducers/Address/idnex';
 
  import * as BookingReview  from './reducers/BookingReview/idnex'; import { combineReducers } from 'redux';
 import thunk from 'redux-thunk'
@@ -35,6 +36,7 @@ import thunk from 'redux-thunk'
     ECategories:ECategories.ECategoryReducer,
     Cart:Cart.CartReducer,
     ECoupons:ECoupons.ECouponsReducer,
+    Address:Address.AddressReducer,
 
    });
 
@@ -58,7 +60,7 @@ const makeStore = () => {
 
         const persistConfig = {
             key: 'duchess',
-            whitelist: [ 'User','CurrentBooking','Cart'], // make sure it does not clash with server keys
+            whitelist: [ 'User','CurrentBooking','Cart','Address'], // make sure it does not clash with server keys
             storage
         };
 
