@@ -24,7 +24,7 @@ switch(id)
     <div className="jnaskdf-sjmerer">
     {/* <img src="/image 7.png"/> */}
     </div>
-    <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatcare" : "/en-AE/services/yachtboatcare"}}><a className="lgn-btn">Explore More</a></Link></div>
+    {/* <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatcare" : "/en-AE/services/yachtboatcare"}}><a className="lgn-btn">Explore More</a></Link></div> */}
     
   </div>
   }
@@ -39,7 +39,7 @@ switch(id)
     <div className="jnaskdf-sjmerer">
     {/* <img src="/image 8.png"/> */}
     </div>
-     <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatcharter" : "/en-AE/services/yachtboatcharter"}}><a className="lgn-btn">Explore More</a></Link></div>
+     {/* <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatcharter" : "/en-AE/services/yachtboatcharter"}}><a className="lgn-btn">Explore More</a></Link></div> */}
 
      
   </div>
@@ -54,7 +54,7 @@ switch(id)
     <div className="jnaskdf-sjmerer">
     {/* <img src="/image 9.png"/> */}
     </div>
-    <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatmaintenance" : "/en-AE/services/yachtboatmaintenance"}}><a className="lgn-btn">Explore More</a></Link></div>
+    {/* <div className="nckdsma-serma"><Link  href={{pathname:Language != undefined ? "/"+Language + "/services/yachtboatmaintenance" : "/en-AE/services/yachtboatmaintenance"}}><a className="lgn-btn">Explore More</a></Link></div> */}
     
   </div>
   }
