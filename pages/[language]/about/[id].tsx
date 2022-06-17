@@ -43,28 +43,20 @@ const Home: NextPage = () => {
         <section className="service-sec container mt-10 ">
           <Heading
             center
-            title={intl.formatMessage({ id: "ar9" })}
+            title={""}
             subtitle={"ABOUT COMPANY"}
           />
         </section>
         <div className="d-flex cdankser0eaw">
-          <img className="sdnfkdsf-sdsf" src="/bgmaincst2.jpg" />
-          <div className="kmcmsd-emk4e mx-5">
+          <img className="sdnfkdsf-sdsf" src="/about.jpg" />
+          <div className="kmcmsd-emk4e mx-5 jnkdfjnas-sjd">
             <p>
-              Marinzon is the leading-edge for all marine related services
-              including yacht and boat maintenance, cleaning and rentals under
-              one banner with a highly professional and well-equipped team of
-              over 100 employees in the heart of UAE, DUBAI.
+            Marinzon is the leading-edge for all marine related servicesincluding yacht and boat maintenance, cleaning and rentalsunder one banner with a highly professionaland well-equipped team of over 100 employeesin the heart of UAE, DUBAI.
             </p>
             <p>
-              We are exemplified as market pioneers in this field with our
-              expert methodology, business sharpness, progressed specialized and
-              mechanical work process and in particular an innovative and open
-              attitude. Having been in the marine business for over many years,
-              the mastery and experience we acquire and show is top notch. The
-              professional team members at Marinzon are exceptional to convey
-              the mind-boggling requests of every client with an individual
-              touch.
+             
+We are exemplified as market pioneers in this field with our expert methodology, business sharpness, progressed specialized and mechanical work process and in particular an innovative and open attitude. Having been in the marine business for over many years, the mastery and experience we acquire and show is top notch. The professional team members at Marinzon are exceptional to convey the mind-boggling requests of every client with an individual touch.
+
             </p>
             <p>
               Professional Staff, experience, and top-notch customer care is
@@ -77,7 +69,7 @@ const Home: NextPage = () => {
         <section className="service-sec container mt-5">
           <Heading
             center
-            title={intl.formatMessage({ id: "ar9" })}
+            title={""}
             subtitle={"WHY CHOOSE US?"}
           />
           <div className="kmcmsd-emk4e  ">
@@ -91,7 +83,7 @@ const Home: NextPage = () => {
         <section className="service-sec container mt-5">
           <div className=" w-100">
             <div className="d-flex justify-content-between  ">
-              <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
+              {/* <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" /> */}
               <div className="mx-5 kmcmsd-emk4e">
                 <Heading
                   title={"Marinzon"}
@@ -126,7 +118,7 @@ const Home: NextPage = () => {
                 </p>
               </div>
 
-              <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
+              {/* <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" /> */}
             </div>
           </div>
         </section>
@@ -134,7 +126,7 @@ const Home: NextPage = () => {
         <section className="service-sec container mt-5">
           <div className=" w-100">
             <div className="d-flex justify-content-between  ">
-              <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
+              {/* <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" /> */}
               <div className="mx-5 kmcmsd-emk4e">
                 <Heading
                   title={"Marinzon"}
@@ -165,14 +157,14 @@ const Home: NextPage = () => {
                 </p>
               </div>
 
-              <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
+              {/* <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" /> */}
             </div>
           </div>
         </section>
         <section className="service-sec container mt-5">
           <div className=" w-100">
             <div className="d-flex justify-content-between  ">
-              <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" />
+              {/* <img className="sdnfkdsf-sdsf1" src="/bgmaincst2.jpg" /> */}
               <div className="mx-5 kmcmsd-emk4e">
                 <Heading title={"Marinzon"} subtitle={"GOING THE EXTRA MILE"} />
                 <p>
@@ -220,22 +212,11 @@ const Home: NextPage = () => {
           </div>
           <div className="w-50">
             <div className="row">
-              <div className="col-md-6 mb-4">
+              <div className="col-md-12 mb-4">
                 {" "}
-                <img className="w-100 br-d" src="/bgmaincst2.jpg" />
+                <img className="w-100 br-d" src="/about2.jpg" />
               </div>
-              <div className="col-md-6 mb-4">
-                {" "}
-                <img className="w-100 br-d" src="/bgmaincst2.jpg" />
-              </div>
-              <div className="col-md-6 mb-4">
-                {" "}
-                <img className="w-100 br-d" src="/bgmaincst2.jpg" />
-              </div>
-              <div className="col-md-6 mb-4">
-                {" "}
-                <img className="w-100 br-d" src="/bgmaincst2.jpg" />
-              </div>
+             
             
             </div>
           </div>

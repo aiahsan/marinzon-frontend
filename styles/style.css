@@ -1707,8 +1707,8 @@ filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.075));
   
 .ankf-js3eiwne  .fixed-top{
      background: rgba(255, 255, 255, 0.95);
-    border-radius: 12px;
-    margin: 3%;
+    /* border-radius: 12px; */
+    /* margin: 3%; */
     padding: 3px 30px;
 }
 
@@ -1739,6 +1739,7 @@ filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.075));
   border-bottom: 4px solid #527DD2;
   border-radius: 15px;
   right: 10%;
+  min-height: 358px;
 }
 .lkdsmvaos0erl{
   display: flex;
@@ -1760,7 +1761,7 @@ border-right: 1px solid #DCDEE0;
 border-radius: 10px 0px 0px 0px;
  display: flex;
 flex-direction: column;
-justify-content: space-between;
+/* justify-content: space-between; */
 }
 
 .dsafimkds-rekm p{
@@ -1923,10 +1924,9 @@ left: -18px;
 }
 .kksadj-waoekjowa p,.kmcmsd-emk4e p{
   font-weight: 400;
-  font-size: 12px;
-  line-height: 15px;
-  
-  color: #1B1D22;
+    font-size: 14px;
+    line-height: 23px;
+    color: #1B1D22;
   
    
 }
@@ -2197,4 +2197,12 @@ color: #333333;
  }
  .kj-jaikmsjdkwe-we p{
    color: red;
+ }
+ .jnkdfjnas-sjd
+ {
+  align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
  }

@@ -33,6 +33,8 @@ const Home: NextPage = () => {
   const router = useRouter();
   const services = useSelector((x: IReduxStore) => x.Services);
   const [sObject,setsObject]=React.useState(undefined);
+  //@ts-ignore
+  const Language = useSelector((x) => x.Language);
 
   const dispatch = useDispatch();
 
@@ -54,7 +56,13 @@ const Home: NextPage = () => {
           />
           <p>Your Order Number is: <strong>{router?.query?.orderNumber}</strong></p>
           <p>We'll email you an order confirmation with details and tracking info</p>
-        <button className="njsa-an3edwaue3 btn">Continue Shopping</button>
+        <button className="njsa-an3edwaue3 btn" onClick={()=>{
+          router.push({
+            pathname:  Language != undefined
+                            ? "/" + Language + "/"
+                            : "/en-AE/",
+          })
+        }}>Continue Shopping</button>
         </section>
      
       

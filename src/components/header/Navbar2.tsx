@@ -133,16 +133,16 @@ export default ({isHome}:{isHome?:boolean}) => {
                   </div>
                   
                   <>
-                  <Nav.Link   onClick={() => {
+                  {/* <Nav.Link   onClick={() => {
                       language != undefined
                       ? router.push("/" + Language + "/services")
                       : router.push("/en-AE/services");
-                    }}>Services</Nav.Link>
+                    }}>Services</Nav.Link> */}
                   <Nav.Link   onClick={() => {
                       language != undefined
                       ? router.push("/" + Language + "/ecommerce")
                       : router.push("/en-AE/ecommerce");
-                    }}>E Commerce</Nav.Link>
+                    }}>Store</Nav.Link>
 
                   {/* <div className="topSearchbar">
                     <div className="w-100">
@@ -161,6 +161,8 @@ export default ({isHome}:{isHome?:boolean}) => {
                      ? router.push("/" + Language + "/about")
                      : router.push("/en-AE/about");
                   }}>About Us</Nav.Link>
+                  <a target="blank" className="nav-link" href="http://vendor.marinzon.com/">Vendor Login</a>
+                  
                   <Nav.Link
                     onClick={() => {
                       if (User != null) {

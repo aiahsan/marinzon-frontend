@@ -165,13 +165,13 @@ const handleScroll = () => {
         </div>
         <div className="sadnks-wewm mnakvd-erre32e njdsf-nasew3">
           <div className="knasdks-jdnwd nsdi0jew-2w2">
-            <h4>Buy or Rent Choose Your favourite Boat</h4>
+            <h4>Rent your Favourite Yacht or Boat With Us!</h4>
             <div>
               <h6>
-                Owning a superyacht is the freedom to explore the world on your
-                terms without limits. With 45 years of experience sourcing the
-                best yachts at the best prices, YPI’s team of worldwide brokers
-                are experts in finding the right yacht for every client.
+              Throwing a birthday bash, bridal shower or a party for corporate fellas? Book a luxurious yacht of your choice with top-class service at Marinzon. We also offer specially designed trip packages for tourists who are looking for a comfort yet fun boat experience. 
+              </h6>
+              <h6>
+              From finding you your right fit to finding you the best package and offering you the best service on your yacht trip, team Marinzon will be there for you! Let’s connect to discuss more!
               </h6>
             </div>
             <button className="btn btn-main-th">Explore More</button>
@@ -183,8 +183,7 @@ const handleScroll = () => {
         <div className="jkjsnca-anejww23">
           <div className="text-center">
             <h4>
-              Book a reliable home cleaning service in UAE within 60 seconds
-            </h4>
+            Book a reliable marine service in UAE within 60 seconds. </h4>
             <h6>
               There are better ways for you to spend your time, so we made it
               easy for you. Book your house cleaning in 60 seconds, and our
@@ -194,18 +193,18 @@ const handleScroll = () => {
           <div className="d-flex justify-content-between nmdamcs-anwjdsa flex-wrap">
             <EasyCard
               img="b1.svg"
-              title={intl.formatMessage({ id: "al17" })}
-              para={intl.formatMessage({ id: "al18" })}
+              title="Book your service"
+              para={""}
             />
             <EasyCard
               img="b2.svg"
-              title={intl.formatMessage({ id: "al17" })}
-              para={intl.formatMessage({ id: "al18" })}
+              title="Get a quote: "
+              para={""}
             />
             <EasyCard
               img="b3.svg"
-              title={intl.formatMessage({ id: "al17" })}
-              para={intl.formatMessage({ id: "al18" })}
+              title="Customer Service/ Connect with Us:"
+              para={"Call us now to get your booking done within minutes!"}
             />
           </div>
         </div>
