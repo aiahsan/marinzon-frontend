@@ -318,7 +318,7 @@ export default {
     ac78:'Password must be at least 6 character',
     ac79:`By enrolling a mobile phone number, you consent to
     receiving automated security notifications via text
-    message from Amazon. You can opt out by removing
+    message from Marinzon. You can opt out by removing
     your mobile number on the Login & Security page
     located in Your Account settings. Message and data
     rates may apply.`,

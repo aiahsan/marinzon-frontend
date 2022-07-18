@@ -37,6 +37,7 @@ const Home: NextPage = () => {
   const User=useSelector((x:IReduxStore)=>x.User)
   const _rcBooking=useSelector((x:IReduxStore)=>x.CurrentBooking)
   const [_selectedService, _setselectedService] = React.useState([]);
+  console.log(_item,"ccccccccvvv")
   React.useEffect(() => {
     if (router.query?.dataqurey) {
       //@ts-ignore
@@ -164,14 +165,18 @@ const Home: NextPage = () => {
               bookerId:User?.id,
               bookingStatus:"Pending",
               title:_item?.title,
+              //@ts-ignore
+              isRental:_item?.categoryId&&_item?.categoryId!=null?false:true,
               bookingItems:_selectedService.map(b=>{
                 return {
                   BookingId:_item?.id,
                   ServiceItemServiceId:b?.pId,
                   ServiceItemServicePriceId:b?.cId,
-                  Price:b?.price
+                  Price:b?.price,
+                   
                 }
-              })
+              }),
+
             }))
            
             

@@ -21,6 +21,8 @@ import moment from "moment";
 import _ from "lodash";
 import Days from "../../../../src/components/days";
 import Times from "../../../../src/components/time";
+import TimeRentals from "../../../../src/components/timeRental";
+
 import { messageAction } from "../../../../src/redux/actionMethodes/message";
 import { type } from "os";
 import { addBookingAM } from "../../../../src/redux/actionMethodes/Booking";
@@ -39,6 +41,7 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
   const [_times, _setTimes] = React.useState([]);
   const [_sDate, _setSdate] = React.useState();
   const [_sTime, _setSTime] = React.useState();
+  const [_eTime, _setETime] = React.useState();
   const [_sDate1, _setSdate1] = React.useState();
   const [_BookingInstructions, _setBookingInstructions] = React.useState("");
   const [_BookingInstructionsa, _setBookingInstructionsa] = React.useState("");
@@ -47,7 +50,8 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
   const user = useSelector((x: IReduxStore) => x.User);
   const dispatch = useDispatch();
   const _CurrentBooking = useSelector((x: IReduxStore) => x.CurrentBooking);
-  React.useEffect(() => {
+
+   React.useEffect(() => {
     if (_CurrentBooking != null) {
       console.log(_CurrentBooking, "sssss");
     } else {
@@ -68,6 +72,8 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
           {" "}
           <h1 className="">Date & Time</h1>
         </div>
+
+        
         <div className="row">
           <div className="col-md-8">
             <div className="card p-4">
@@ -81,7 +87,39 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                   />
                 </div>
               </div>
+              
+
+
+              {
+           _CurrentBooking?.isRental?<>
+           
+           <div className="my-4">
+                <h4>What time would you like us to start?</h4>
+                <div className="d-flex kjadss-dksiamedj flex-wrap">
+                  <TimeRentals
+                    _setSdatecst={(e) => {
+                      _setSTime(e);
+                    }}
+                  />
+                </div>
+                <p className="my-3">
+                  Your professional will arrive between {_sTime}
+                </p>
+              </div>
               <div className="my-4">
+                <h4>What time would you like us to End?</h4>
+                <div className="d-flex kjadss-dksiamedj flex-wrap">
+                  <TimeRentals
+                    _setSdatecst={(e) => {
+                      _setETime(e);
+                    }}
+                  />
+                </div>
+                
+              </div>
+           </>:<>
+               
+           <div className="my-4">
                 <h4>What time would you like us to start?</h4>
                 <div className="d-flex kjadss-dksiamedj flex-wrap">
                   <Times
@@ -94,6 +132,11 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                   Your professional will arrive between {_sTime}
                 </p>
               </div>
+           </>
+        }
+
+             
+               
               <div className="my-4">
                 <h4>Do you have any specific instructions?</h4>
                 <textarea
@@ -136,6 +179,16 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                         })
                       );
                     }
+                    //@ts-ignore
+                    else if(_CurrentBooking?.isRental==true&&_eTime==undefined)
+                    {
+                      dispatch(
+                        messageAction({
+                          type: 3,
+                          message: "Please select booking end time",
+                        })
+                      );
+                    }
                     else if(_BookingInstructionsa.trim()=="")
                     {
                       dispatch(
@@ -144,8 +197,14 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                           message: "Please select booking address",
                         })
                       );
-                    }else{
+                    }
+                    
+                    else{
 
+                      if(_CurrentBooking?.isRental==false)
+                      {
+                        _setETime("");
+                      }
                         
                      dispatch(
                         AddBookings(
@@ -155,6 +214,7 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                             RecordUserId: user.id,
                             bookingDateTime: _sDate,
                             bookingTime: _sTime,
+                            bookingEndTime:_eTime,
                             bookingAddress:_BookingInstructionsa,
                             bookingInstructions: _BookingInstructions,
                             bookingItemsstring: JSON.stringify(
@@ -180,6 +240,7 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                 Book Now
               </button>
             </div>
+            
           </div>
           <div className="col-md-4">
             <div className="card p-4">
@@ -222,6 +283,12 @@ const Home: NextPage = ({ Component, pageProps }: AppProps) => {
                   <p>Start Time</p>
                   <p>{_sTime ? <strong>{_sTime}</strong> : <></>}</p>
                 </div>
+                {  _CurrentBooking?.isRental?<>
+                  <div className="d-flex justify-content-between my-2 w-100">
+                  <p>End Time</p>
+                  <p>{_eTime ? <strong>{_eTime}</strong> : <></>}</p>
+                </div>
+                </>:<></>}
               </div>
               <div className="nasdklas-3ne my-3">
                 <div>

@@ -55,6 +55,11 @@ const GetServiceItem = async (token: string,userId?:string) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+const GetServiceItemRental = async (token: string,userId?:string) => {
+  return await api.get("/ServiceItem/rentals"+(userId!=undefined?`?userId=${userId}`:""),undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
+};
 const GetServiceItemByCategoryId = async (token: string,userId?:string,categoryId?:number) => {
   return await api.get("/ServiceItem/getbycategoryId?"+(userId!=undefined?`userId=${userId}`:""+(`categoryId=${categoryId}`)),undefined,{
    headers: { Authorization: `Bearer ${token}` },
@@ -316,5 +321,6 @@ GetECoupons,
 DeleteECoupons,
 UpdateECoupons,
 PostECoupons,
-GetSingleECoupon
+GetSingleECoupon,
+GetServiceItemRental
 };

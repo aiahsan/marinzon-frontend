@@ -32,14 +32,14 @@ export default ({isHome}:{isHome?:boolean}) => {
   const intl = useIntl();
   const { language } = router.query;
   const Language = useSelector((x) => x.Language);
-  const Services = useSelector((x) => x.Services);
+  const Services = useSelector((x) => x.Categories);
   const User = useSelector((x: IReduxStore) => x.User);
   const [currentS, setcurrentS] = React.useState(undefined);
   const dispatch = useDispatch();
   //@ts-ignore
   const Carts=useSelector(x=>x.Cart);
 
-  console.log(Carts,"cccc");
+  console.log(Services,"cccc");
   return (
     <>
       {" "}
@@ -77,7 +77,9 @@ export default ({isHome}:{isHome?:boolean}) => {
                         <div className="animated fadeIn mega-menu">
                           <div className="mega-menu-wrap">
                             <div className="row">
-                              <div className="col-md-3 d-flex flex-column">
+                              {
+                                /*
+                                <div className="col-md-3 d-flex flex-column">
                                 <h5>Services</h5>
                                 {Services.map((x) => (
                                   <p
@@ -94,11 +96,12 @@ export default ({isHome}:{isHome?:boolean}) => {
                                   </p>
                                 ))}
                               </div>
-                              {
-                                currentS!=undefined?<>
-                                <div className="col-md-4 d-flex flex-column">
+                                */
+                              }
+                               <div className="col-md-4 d-flex flex-column">
                                 <h5>Categories</h5>
-                                {currentS?.categories?.map((data) => (
+                                {Services?.map((data) => (
+                                  
                                   <p
                                     onClick={() => {
                                       language != undefined
@@ -113,13 +116,18 @@ export default ({isHome}:{isHome?:boolean}) => {
                                       }}
                                   >
                                     {data.title}
+                                  {console.log(data,"bbbbb")}
                                   </p>
                                 ))}
                               </div>
-                              <div className="col-md-4 d-flex flex-column">
+                              {
+                                
+                                currentS!=undefined?<>
+                               
+                              {/* <div className="col-md-4 d-flex flex-column">
                                 <img src={ImageUrl+currentS?.image}/>
                                  
-                              </div>
+                              </div> */}
                                 </>:<></>
                               }
                               {/* <div className="col-md-4">
@@ -143,7 +151,11 @@ export default ({isHome}:{isHome?:boolean}) => {
                       ? router.push("/" + Language + "/ecommerce")
                       : router.push("/en-AE/ecommerce");
                     }}>Store</Nav.Link>
-
+   <Nav.Link   onClick={() => {
+                      language != undefined
+                      ? router.push("/" + Language + "/rental")
+                      : router.push("/en-AE/rental");
+                    }}>Rental</Nav.Link>
                   {/* <div className="topSearchbar">
                     <div className="w-100">
                       <input

@@ -23,6 +23,7 @@ import { getRouteName } from "./services/[id]";
 import Carousel from "../../src/components/carousel";
 import HomeSCard from "../../src/components/cards/homeSCard";
 import Footer from '../../src/components/footer'
+import { GetCategory } from "../../src/functions/Categories";
  const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter()
@@ -31,7 +32,7 @@ import Footer from '../../src/components/footer'
   const services = useSelector((x: IReduxStore) => x.Services);
   React.useEffect(() => {
     //@ts-ignore
-    dispatch(GetServices());
+    dispatch(GetCategory());
   }, []);
 
   React.useEffect(() => {}, [services]);

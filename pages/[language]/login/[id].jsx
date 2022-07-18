@@ -19,6 +19,7 @@ import { DisplayingErrorMessagesLoginSchema } from "../../../src/utiles/ErrorSch
 import { ILogin } from "../../../src/interfaces/data/objects";
 import { LoginUser } from "../../../src/functions/User";
 import Textbox from "../../../src/components/textbox";
+import Textbox1 from "../../../src/components/forms/textbox";
 import {wrapper } from '../../../src/redux/store';
 
 export default () => {
@@ -37,15 +38,14 @@ disptach(LoginUser(values,routerr))
       <div className=" ">
          <Navbar />
       </div>
-      <div className="signupscreen1 mt-250">
-        <section className="container-2">
-          <div className="images-2">
-            <img src="assets\images\gallery-2-removebg-preview.png" alt="" />
-          </div>
-          <div className="create">
-            <div className="create-1">
-             </div>
-
+     
+      <div className="login-box-p">
+      <div className="container">
+      <div className="d-flex justify-content-between align-items-center mv100">
+    
+        <div className="lgn-p">
+         
+          <div className="lgn-box">
             <Formik
               initialValues={{
                 userName: "",
@@ -58,14 +58,14 @@ disptach(LoginUser(values,routerr))
             >
               {({ errors, touched, getFieldProps, handleSubmit }) => {
                 return (
-                  <div className="login-form">
-                    <h3 className="text-center mb-2">Welcome Back</h3>
-                    <h5 className="text-center mb-4">
-                      Enter Your Email and Password
-                    </h5>
+                  <div className="login-form p-an">
+                    <h5 className="text-center">Welcome Back</h5>
+                    <h6 className="text-center mb-3">
+                      Sign in to your account
+                    </h6>
                     <Form className="pt-4">
                       <div className="d-flex flex-column pb-3 w-100">
-                        <Textbox
+                        <Textbox1
                           label="Email / Phone Number"
                           getFieldProps={getFieldProps}
                           feildName="userName"
@@ -76,7 +76,7 @@ disptach(LoginUser(values,routerr))
                         />
                       </div>
                       <div className="d-flex flex-column pb-3">
-                        <Textbox
+                        <Textbox1
                           label="Password"
                           getFieldProps={getFieldProps}
                           feildName="password"
@@ -86,7 +86,7 @@ disptach(LoginUser(values,routerr))
                           type="password"
                         />
                       </div>
-                      <div className="d-flex jusity-content-end pb-4">
+                      <div className="d-flex jusity-content-end pb-2 kjado3er">
                         <div className="ml-auto">
                           {" "}
                           <a
@@ -96,20 +96,16 @@ disptach(LoginUser(values,routerr))
                             Forgot password?
                           </a>{" "}
                         </div>
-                      </div>{" "}
-                      <input
+                      </div>
+                      <button
                         type="submit"
                         defaultValue="Log in"
-                        className="btn btn-primary btn-block mb-3 w-100"
-                      />
-                    </Form>
-                  </div>
-                );
-              }}
-            </Formik>
-
-           
-            <p>
+                        className="btn-brd"
+                      >
+                        <span> Login</span>
+                      </button>
+                        <div className="mt-4">
+                        <p>
               {intl.formatMessage({ id: "ac70" })}{" "}
               <span
                 id="blue"
@@ -123,10 +119,17 @@ disptach(LoginUser(values,routerr))
                 {intl.formatMessage({ id: "ac71" })}
               </span>
             </p>
+                        </div>
+                    </Form>
+                  </div>
+                );
+              }}
+            </Formik>
           </div>
-        </section>
+        </div>
       </div>
-
+    </div>
+    </div>
       <div className="container">
         <Footer />
       </div>    </div>

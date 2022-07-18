@@ -47,6 +47,46 @@ export function GetItems() {
     })();
   };
 }
+export function GetItemsRental() {
+  return function (dispatch: any, getState: any): any {
+    (async () => {
+      try {
+         dispatch(loadingAction(true));
+        const isAdimn=getState()?.User?.isAdmin;
+          const { status, data }: any = await repository
+          .GetServiceItemRental(getState().User?.token || "",isAdimn==false?getState().User?.id:undefined)
+          .then((x) => x);
+        if (status == 200 && data?.success == true) {
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 1,
+              message: data?.message,
+            })
+          );
+             dispatch(setItemAM(data?.data?.filter((x:IItem)=>x.isApproved==true)));
+         } else {
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 3,
+              message:
+                data?.message || "Something wen't wrong contact support",
+            })
+          );
+        }
+      } catch (e) {
+        dispatch(loadingAction(false));
+        dispatch(
+          messageAction({
+            type: 3,
+            message: e as string,
+          })
+        );
+      }
+    })();
+  };
+}
 export function AddItem(dataP:any) {
    return function (dispatch: any, getState: any): any {
     (async () => {
