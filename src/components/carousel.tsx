@@ -5,6 +5,7 @@ import Icons from '../components/icons'
 import router from "next/router";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import ReactPlayer from 'react-player'
 
 const GetBox=({id}:{id:number})=>{
   const { language } = router.query;
@@ -68,15 +69,21 @@ export default ()=>{
   
   return <div className="jkdsf0-3les">
   <Carousel showIndicators={false} showStatus={false} showThumbs={false}>
-    <div >
-      <img src="/Group 85.png" alt="image1" />
+     
+  <div className="player-wrapper"  >
+  <ReactPlayer
+  playing={true}
+  loop={true}
+  muted={true}
+  width={"100%"}
+  height={"100%"}
+  url={[
+    {src: 'Marinzon.mp4', type: 'video/mp4'}
+  ]}
+/>
+   
     </div>
-    <div  >
-      <img src="/Group 85.png" alt="image2" />
-    </div>
-    <div >
-      <img src="/Group 85.png" alt="image3" />
-    </div>
+    
   </Carousel>
 
   <div className="lkdsmvaos0erl">

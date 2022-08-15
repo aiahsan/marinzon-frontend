@@ -1733,7 +1733,7 @@ filter: drop-shadow(0px 12px 24px rgba(0, 0, 0, 0.075));
 }
 .lkdsmvaos0erl{
   position:absolute;
-  bottom: 0px;
+  bottom: -9%;
   max-width: 525px;
   background-color: white;
   border-bottom: 4px solid #527DD2;
@@ -1873,6 +1873,9 @@ color: #333333;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.nkdksa-wkejme img{
+  border-radius: 20px;
 }
 .nkdksa-wkejme{
   max-width: 450px;
@@ -2454,3 +2457,15 @@ input {
 .text-left p{
   text-align: left;
 }
+.rpc{
+   
+}
+.carousel .slide video{
+ scale: 1.4;
+ height: 100vh!important;
+}
+ .player-wrapper{
+  
+  margin-top: 0;
+ }
+ 

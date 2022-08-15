@@ -101,7 +101,7 @@ const handleScroll = () => {
         </div>
          <div className="sadnks-wewm mnakvd-erre32e">
           <div className="nkdksa-wkejme mx-4">
-            <img src="/Group 86.png" />{" "}
+            <img src="/bg5.jpg" />{" "}
           </div>
           <div className="knasdks-jdnwd">
             <h4>So many reason to love Marinzon!</h4>
