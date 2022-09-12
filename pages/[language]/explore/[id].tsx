@@ -26,6 +26,9 @@ import {
 import { GetServices } from "../../../src/functions/Services";
 import { GetCategory } from "../../../src/functions/Categories";
 import { GoSearch } from "react-icons/go";
+import Loader from "../../../src/components/loader";
+import { useDebounce } from "use-debounce";
+import Pagintion from '../../../src/components/pagination'
 
 const Home: NextPage = () => {
   const intl = useIntl();
@@ -33,6 +36,10 @@ const Home: NextPage = () => {
   const services = useSelector((x: IReduxStore) => x.Services);
   const categoreis = useSelector((x: IReduxStore) => x.Categories);
   const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
+  const [page,setPage]=React.useState(0);
+  const [search,setsearch]=React.useState('');
+  const [value] = useDebounce(search, 1000);
+  const Loading = useSelector((x: IReduxStore) => x.Loading);
 
   const dispatch = useDispatch();
   const [_filters, _setfilters] = React.useState({
@@ -49,7 +56,10 @@ const Home: NextPage = () => {
           ?.split(" ")
           ?.pop()
       );
-      dispatch(GetItemsByCategoryID(idGet));
+
+             //@ts-ignore
+
+      dispatch(GetItems(page.toString(),value.length>0?value:undefined,true,idGet));
 
       //@ts-ignore
       _setfilters({
@@ -60,25 +70,23 @@ const Home: NextPage = () => {
     }
     else
     {
-      dispatch(GetItems());
+            //@ts-ignore
+
+      dispatch(GetItems(page.toString(),value.length>0?value:undefined,undefined,0,false));
+      // dispatch(GetItems(page.toString(),value.length>0?value:undefined,true,idGet));
 
     }
      
    
-  }, [router.query]);
+  }, [router.query,value,page]);
   React.useEffect(()=>{
-    console.log(categoreis);
-    if(categoreis.length<=0)
+     if(categoreis.length<=0)
     {
-       dispatch(GetCategory())
+      dispatch(GetCategory(page.toString(),value.length>0?value:undefined))
 
     }
-    if(services.length<=0)
-    {
-      dispatch(GetServices());
-
-    }
-  },[ITEMS])
+     
+  },[])
   // React.useEffect(() => {
   //   if (_filters.categoryId != undefined) {
   //     //@ts-ignore
@@ -102,6 +110,9 @@ const Home: NextPage = () => {
                       <input
                         type="text"
                         placeholder="Search everything at Marinzon"
+                        onChange={(e)=>{
+                          setsearch(e.target.value)
+                      }}
                       />
                     </div>
                     <div className="icon-search-bx">
@@ -127,17 +138,22 @@ const Home: NextPage = () => {
         </div>
       </section> */}
 
-     
-      <div className="container  mb-5">
-        <div className="row mt-5">
+<div className="container  mb-5">
+        {
+          Loading === true ?<> <Loader /></>:<div className="row mt-5">
           <div className="col-md-3 mt-5 rd-brd">
-            <CategoryAccordian _filters={_filters} _setfilters={_setfilters} />
+          <CategoryAccordian _filters={_filters} _setfilters={_setfilters} />
           </div>
           <div className="col-md-9 mt-5 rd-brd">
-            <ProductCard />
+          <ProductCard />
           </div>
         </div>
+        }
+       
       </div>
+      <div>
+          <Pagintion setCurrentPage={setPage}/>
+        </div>
       <div className="container">
         <Footer />
       </div>    </div>

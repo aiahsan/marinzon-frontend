@@ -3,6 +3,18 @@ import { api } from "./baseUrl";
 const login = async (data: ILogin) => {
   return await api.post("/user/login", data);
 };
+const verify = async (data: ILogin) => {
+   return await api.post("/user/verify", data);
+};
+const resend = async (data: ILogin) => {
+  return await api.post("/user/resend", data);
+};
+const confirmCode = async (data: ILogin) => {
+  return await api.post("/user/confirmCode", data);
+};
+const resetPassword = async (data: ILogin) => {
+  return await api.post("/user/resetPassword", data);
+};
 
 const register = async (data: ILogin) => {
   return await api.post("/user/register", data);
@@ -29,10 +41,16 @@ const DeleteServices = async (token: string,data:IService) => {
   });
 };
 
-const GetCategory = async (token: string) => {
-  return await api.get("/Category",undefined,{
-    headers: { Authorization: `Bearer ${token}` },
-  });
+const GetCategory = async (token: string,id?:string,isAdmin?:any,page?:string,search?:string,showApproved?:boolean) => {
+  let url=("/Category?page="+(page?page:-1)+"&userId="+id+"&isAdmin="+isAdmin+"&search="+search).toString();
+  if(showApproved)
+  {
+   url+="&showApproved=true"
+  } 
+   
+  return await api.get(url,undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
 };
 const PostCategory = async (token: string,data:ICategory) => {
   return await api.post("/Category",data,{
@@ -50,10 +68,27 @@ const DeleteCategory = async (token: string,data:ICategory) => {
   });
 };
 
-const GetServiceItem = async (token: string,userId?:string) => {
-   return await api.get("/ServiceItem"+(userId!=undefined?`?userId=${userId}`:""),undefined,{
-    headers: { Authorization: `Bearer ${token}` },
-  });
+ 
+const GetServiceItem = async (token: string,id?:string,isAdmin?:any,page?:string,search?:string,showApproved?:boolean,categoryId?:number,isRental?:boolean) => {
+
+   let url=("/ServiceItem?page="+(page?page:-1)+"&userId="+id+"&isAdmin="+isAdmin+"&search="+search).toString();
+  if(showApproved)
+  {
+   url+="&showApproved=true"
+  }  
+  if(categoryId)
+  {
+    url+="&categoryId="+categoryId
+  }
+  if(isRental)
+  {
+    url+="&isRental=true"
+  }
+  return await api.get(url,undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
+ 
+   
 };
 const GetServiceItemRental = async (token: string,userId?:string) => {
   return await api.get("/ServiceItem/rentals"+(userId!=undefined?`?userId=${userId}`:""),undefined,{
@@ -160,10 +195,16 @@ const GetItemById = async (token: string,itemId?:string) => {
   });
 };
 
-const GetECategory = async (token: string) => {
-  return await api.get("/ECategory",undefined,{
-    headers: { Authorization: `Bearer ${token}` },
-  });
+const GetECategory = async (token: string,id?:string,isAdmin?:any,page?:string,search?:string,showApproved?:boolean) => {
+  let url=("/ECategory?page="+(page?page:-1)+"&userId="+id+"&isAdmin="+isAdmin+"&search="+search).toString();
+  if(showApproved)
+  {
+   url+="&showApproved=true"
+  } 
+   
+  return await api.get(url,undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
 };
 const PostECategory = async (token: string,data:IECategory) => {
   return await api.post("/ECategory",data,{
@@ -181,11 +222,21 @@ const DeleteECategory = async (token: string,data:IECategory) => {
   });
 };
 
-const GetEProduct = async (token: string) => {
-  return await api.get("/EProduct",undefined,{
-    headers: { Authorization: `Bearer ${token}` },
-  });
-};
+const GetEProduct = async (token: string,id?:string,isAdmin?:any,page?:string,search?:string,showApproved?:boolean,categoryId?:number) => {
+   
+  let url=("/EProduct?page="+(page?page:-1)+"&userId="+id+"&isAdmin="+isAdmin+"&search="+search).toString();
+  if(showApproved)
+  {
+   url+="&showApproved=true"
+  } 
+  if(categoryId)
+  {
+    url+="&categoryId="+categoryId
+  }
+  return await api.get(url,undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
+}; 
 const PostEProduct = async (token: string,data:IEProduct) => {
   return await api.post("/EProduct",data,{
     headers: { Authorization: `Bearer ${token}` },
@@ -271,6 +322,14 @@ const DeleteECoupons = async (token: string,data:IECoupons) => {
   });
 }
 
+const GetDesktop = async (token: string,) => {
+  let url=("/ServiceItem/getDesktop").toString();
+   
+  return await api.get(url,undefined,{
+   headers: { Authorization: `Bearer ${token}` },
+ });
+};
+
 export const repository = {
   login,
   register,
@@ -322,5 +381,7 @@ DeleteECoupons,
 UpdateECoupons,
 PostECoupons,
 GetSingleECoupon,
-GetServiceItemRental
+GetServiceItemRental,
+GetDesktop,
+verify,confirmCode,resetPassword,resend
 };

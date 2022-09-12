@@ -14,6 +14,7 @@ import * as Message  from './reducers/messsage/idnex';
  import * as Cart  from './reducers/Cart/idnex';
  import * as ECoupons  from './reducers/ECoupons/idnex';
  import * as Address  from './reducers/Address/idnex';
+//  import * as Home  from './reducers/Home/idnex';
 
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -35,7 +36,7 @@ export const rootReducer = combineReducers({
   Cart:Cart.CartReducer,
   ECoupons:ECoupons.ECouponsReducer,
   Address:Address.AddressReducer,
-
+  // Home:Home.HomeReducer
  });
 
 const persistConfig={

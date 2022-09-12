@@ -22,6 +22,7 @@ import { LogOutAction } from "../../redux/actionMethodes/user/idnex";
 import { Dropdown } from "react-bootstrap";
 import { useMediaQuery } from 'react-responsive'
 import CategoryAccordian from '../../components/generic/CategoryAccordian'
+import Loader from "../loader";
 let expand = "xl";
 const LogoImage = require("../../images/image 5.png");
 
@@ -38,6 +39,7 @@ export default ({isHome}:{isHome?:boolean}) => {
   const dispatch = useDispatch();
   //@ts-ignore
   const Carts=useSelector(x=>x.Cart);
+  const Loading = useSelector((x: IReduxStore) => x.Loading);
 
   console.log(Services,"cccc");
   return (
@@ -100,7 +102,7 @@ export default ({isHome}:{isHome?:boolean}) => {
                               }
                                <div className="col-md-4 d-flex flex-column">
                                 <h5>Categories</h5>
-                                {Services?.map((data) => (
+                                {Loading === true ? <Loader /> : Services?.map((data) => (
                                   
                                   <p
                                     onClick={() => {
@@ -116,9 +118,9 @@ export default ({isHome}:{isHome?:boolean}) => {
                                       }}
                                   >
                                     {data.title}
-                                  {console.log(data,"bbbbb")}
-                                  </p>
+                                   </p>
                                 ))}
+                                
                               </div>
                               {
                                 

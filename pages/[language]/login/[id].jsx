@@ -90,7 +90,8 @@ disptach(LoginUser(values,routerr))
                         <div className="ml-auto">
                           {" "}
                           <a
-                            href="#"
+                            href="/en-AE/forgot"
+                            id="blue"
                             className="text-danger text-decoration-none"
                           >
                             Forgot password?

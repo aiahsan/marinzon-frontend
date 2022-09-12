@@ -25,6 +25,7 @@ import { setCurrentBookingAM } from "../../../src/redux/actionMethodes/Currentbo
 import { IReduxStore } from "../../../src/interfaces/data/reduxStore";
 import { bookingStatus } from "../../../src/utiles/constants";
 import Heading1 from "../../../src/components/headings/Heading1";
+import Loader from "../../../src/components/loader";
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
@@ -37,6 +38,8 @@ const Home: NextPage = () => {
   const User=useSelector((x:IReduxStore)=>x.User)
   const _rcBooking=useSelector((x:IReduxStore)=>x.CurrentBooking)
   const [_selectedService, _setselectedService] = React.useState([]);
+  const Loading = useSelector((x: IReduxStore) => x.Loading);
+
   console.log(_item,"ccccccccvvv")
   React.useEffect(() => {
     if (router.query?.dataqurey) {
@@ -96,7 +99,14 @@ const Home: NextPage = () => {
          <Navbar />
       </div>
 
-      <section className="container  mb-5 mt-10">
+     
+      {
+        Loading === true ? (
+          <div style={{height:"100vh"}} className="d-flex justify-content-center align-items-center">
+            <Loader />
+          </div>
+        ) :<>
+         <section className="container  mb-5 mt-10">
         <Heading1 center title={_item?.title} subtitle={_item?.description} />
       </section>
 
@@ -233,6 +243,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+
+        </>
+      }
       <div className="container">
         <Footer />
       </div>    </div>

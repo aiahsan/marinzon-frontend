@@ -1,6 +1,8 @@
 import React from "react";
 import { IFAQQuestion, IFAQService, IServiceItemService } from "../../interfaces/data/objects";
  
+export const PageSize=9;
+
 export const LoginType = {
   Email:1,
   PhoneNumber:2
@@ -72,7 +74,7 @@ export const _cstFaqQuestion:IFAQQuestion[]=([{
 
 ])
 
- 
+ /*
 export function changeKeysToUpper(obj:any) {
   var key, upKey;
   for (key in obj) {
@@ -93,3 +95,4 @@ export function changeKeysToUpper(obj:any) {
   }
   return obj;
 }
+*/

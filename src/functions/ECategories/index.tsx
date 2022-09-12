@@ -6,13 +6,13 @@ import { messageAction } from "../../redux/actionMethodes/message";
 import { addECategoryAM, deleteECategoryAM, setECategoryAM, updateECategoryAM } from "../../redux/actionMethodes/ECategory";
 import { repository } from "../../utiles/repository";
 
-export function GetECategory() {
+export function GetECategory(page?:any,search?:any,showApproved?:boolean) {
   return function (dispatch: any, getState: any): any {
     (async () => {
       try {
         dispatch(loadingAction(true));
          const { status, data }: any = await repository
-          .GetECategory(getState().User?.token || "")
+          .GetECategory(getState().User?.token || "","0",true,"-1",search,showApproved)
           .then((x) => x);
         if (status == 200 && data?.success == true) {
 

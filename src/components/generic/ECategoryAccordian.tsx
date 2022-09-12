@@ -16,7 +16,7 @@ const App = ({_filters,_setfilters}:{_filters:any,_setfilters:any}) => {
   },[])
   return (
     <div className="exp-tab">
-       <Accordion defaultActiveKey={services.map((x:ICategory)=>x.id?.toString())} alwaysOpen>
+        <Accordion defaultActiveKey={services.map((x:ICategory)=>x.id?.toString())} alwaysOpen>
        {
          services.map(x=>{
            return  <Accordion.Item eventKey={x.id?.toString()}>
@@ -25,7 +25,7 @@ const App = ({_filters,_setfilters}:{_filters:any,_setfilters:any}) => {
            </Accordion.Header>
            <Accordion.Body>
              <ul>
-               {
+               {/* {
                  x?.items.map((data:IItem)=><li onClick={()=>{
                     router.push( {
                       pathname:
@@ -46,7 +46,7 @@ const App = ({_filters,_setfilters}:{_filters:any,_setfilters:any}) => {
                   //    serviceId:undefined
                   //  });
                  }}>{data.title }</li>)
-               }
+               } */}
                 
              </ul>
            </Accordion.Body>

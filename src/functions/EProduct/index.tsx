@@ -5,14 +5,15 @@ import { loadingAction } from "../../redux/actionMethodes/loader";
 import { messageAction } from "../../redux/actionMethodes/message";
 import { addEProductAM, deleteEProductAM, setEProductAM, updateEProductAM } from "../../redux/actionMethodes/EProduct";
 import { repository } from "../../utiles/repository";
+import { setCountAM } from "../../redux/actionMethodes/Count";
 
-export function GetEProduct() {
-  return function (dispatch: any, getState: any): any {
+export function GetEProduct(page?:any,search?:any,showApproved?:boolean,categoryId?:number) {
+   return function (dispatch: any, getState: any): any {
     (async () => {
       try {
         dispatch(loadingAction(true));
          const { status, data }: any = await repository
-          .GetEProduct(getState().User?.token || "")
+          .GetEProduct(getState().User?.token || "","0",true,page,search,showApproved,categoryId)
           .then((x) => x);
         if (status == 200 && data?.success == true) {
 
@@ -23,7 +24,7 @@ export function GetEProduct() {
               message: data?.message,
             })
           );
-          console.log(data,"ddddd")
+          dispatch(setCountAM(data?.count));
             dispatch(setEProductAM(data?.data));
         } else {
           dispatch(loadingAction(false));

@@ -27,6 +27,7 @@ import { bookingStatus } from "../../../src/utiles/constants";
 import Heading1 from "../../../src/components/headings/Heading1";
 import Link from "next/link";
 import { addCartAM, deleteCartAM } from "../../../src/redux/actionMethodes/Cart";
+import Loader from "../../../src/components/loader";
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
@@ -38,6 +39,7 @@ const Home: NextPage = () => {
   const [_item, _setcurrentServiced] = React.useState(undefined);
   const User=useSelector((x:IReduxStore)=>x.User);
   const Carts=useSelector((x:IReduxStore)=>x.Cart);
+  const Loading = useSelector((x: IReduxStore) => x.Loading);
 
    const [_selectedService, _setselectedService] = React.useState([]);
   React.useEffect(() => {
@@ -87,7 +89,14 @@ const Home: NextPage = () => {
          <Navbar />
       </div>
 
-      <section className="container  mb-5 mt-10">
+
+      {
+         Loading === true ? (
+          <div style={{height:"100vh"}} className="d-flex justify-content-center align-items-center">
+            <Loader />
+          </div>
+        ) :<>
+          <section className="container  mb-5 mt-10">
         <Heading1 center title={_item?.title} subtitle={_item?.description} />
       </section>
 
@@ -178,6 +187,9 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+        </>
+      }
+    
       <div className="container">
         <Footer />
       </div>    </div>

@@ -16,6 +16,7 @@ const App = ({_filters,_setfilters}:{_filters:any,_setfilters:any}) => {
   },[])
   return (
     <div className="exp-tab">
+      <h6>Categories</h6>
        <ul>
                {
                 services.map((data:IECategory)=><li onClick={()=>{

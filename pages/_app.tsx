@@ -51,9 +51,8 @@ const App = ({ Component, pageProps }) => {
   return (
     <IntlProvider locale={ Language==undefined || Language=="en-AE"?"en":"ar"} messages={messages[Language==undefined || Language=="en-AE"?"en":"ar"]}>
       <Component {...pageProps} />
-       {Loading === true ? <Loader /> : <></>}
        
-       {Message != null ? <Toast message={Message} /> : <></>}
+       {Message != null && Message.type==3? <Toast message={Message} /> : <></>}
     </IntlProvider>
   );
 };

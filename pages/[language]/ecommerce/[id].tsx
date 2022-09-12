@@ -29,12 +29,19 @@ import { GoSearch } from "react-icons/go";
 import EProductCard from "../../../src/components/cards/EProductCard";
 import { GetEProduct, GetProductsByCategoryID } from "../../../src/functions/EProduct";
 import { GetECategory } from "../../../src/functions/ECategories";
-
+import { useDebounce } from "use-debounce";
+import Loader from "../../../src/components/loader";
+import Pagintion from '../../../src/components/pagination'
 const Home: NextPage = () => {
   const intl = useIntl();
   const router = useRouter();
    const categoreis = useSelector((x: IReduxStore) => x.ECategories);
+   const categoreisP = useSelector((x: IReduxStore) => x.Categories);
   const ITEMS = useSelector((x: IReduxStore) => x.ServiceItem);
+  const [page,setPage]=React.useState(0);
+  const [search,setsearch]=React.useState('');
+  const [value] = useDebounce(search, 1000);
+  const Loading = useSelector((x: IReduxStore) => x.Loading);
 
   const dispatch = useDispatch();
   const [_filters, _setfilters] = React.useState({
@@ -43,7 +50,8 @@ const Home: NextPage = () => {
   });
 
   React.useEffect(() => {
-    if (router.query?.dataqurey) {
+   
+     if (router.query?.dataqurey) {
       let idGet=parseInt(
         router.query?.dataqurey
           ?.replaceAll("-", " ")
@@ -51,7 +59,8 @@ const Home: NextPage = () => {
           ?.split(" ")
           ?.pop()
       );
-      dispatch(GetProductsByCategoryID(idGet));
+       //dispatch(GetProductsByCategoryID(idGet));
+       dispatch(GetEProduct(page.toString(),value.length>0?value:undefined,true,idGet));
 
       //@ts-ignore
       _setfilters({
@@ -62,20 +71,25 @@ const Home: NextPage = () => {
     }
     else
     {
-      dispatch(GetEProduct());
+      dispatch(GetEProduct(page.toString(),value.length>0?value:undefined,undefined));
 
     }
      
    
-  }, [router.query]);
+  }, [router.query,value,page]);
   React.useEffect(()=>{
      if(categoreis.length<=0)
     {
-       dispatch(GetECategory())
+       dispatch(GetECategory(page.toString(),value.length>0?value:undefined))
+
+    }
+     if(categoreisP.length<=0)
+    {
+       dispatch(GetCategory(page.toString(),value.length>0?value:undefined))
 
     }
 
-  },[ITEMS])
+  },[])
   // React.useEffect(() => {
   //   if (_filters.categoryId != undefined) {
   //     //@ts-ignore
@@ -103,6 +117,9 @@ const Home: NextPage = () => {
                       <input
                         type="text"
                         placeholder="Search everything at Marinzon"
+                        onChange={(e)=>{
+                          setsearch(e.target.value)
+                      }}
                       />
                     </div>
                     <div className="icon-search-bx">
@@ -130,7 +147,10 @@ const Home: NextPage = () => {
 
      
       <div className="container  mb-5">
-        <div className="row mt-5">
+        {
+          Loading === true ?<> <Loader /></>:
+          <>
+          <div className="row mt-5">
           <div className="col-md-3 mt-5 rd-brd">
             <CategoryAccordian _filters={_filters} _setfilters={_setfilters} />
           </div>
@@ -138,7 +158,14 @@ const Home: NextPage = () => {
             <EProductCard />
           </div>
         </div>
+        
+        </>
+        }
+      <div>
+          <Pagintion setCurrentPage={setPage}/>
+        </div>
       </div>
+
       <div className="container">
         <Footer />
       </div>    </div>

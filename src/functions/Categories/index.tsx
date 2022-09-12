@@ -5,8 +5,9 @@ import { loadingAction } from "../../redux/actionMethodes/loader";
 import { messageAction } from "../../redux/actionMethodes/message";
 import { addCategoryAM, deleteCategoryAM, setCategoryAM, updateCategoryAM } from "../../redux/actionMethodes/Category";
 import { repository } from "../../utiles/repository";
+import { setHomeAM } from "../../redux/actionMethodes/Home";
 
-export function GetCategory() {
+export function GetCategory(page?:any,search?:any,showApproved?:boolean) {
   return function (dispatch: any, getState: any): any {
 
     (async () => {
@@ -14,7 +15,7 @@ export function GetCategory() {
       try {
         dispatch(loadingAction(true));
          const { status, data }: any = await repository
-          .GetCategory(getState().User?.token || "")
+          .GetCategory(getState().User?.token || "","0",true,"-1",search,showApproved)
           .then((x) => x);
         if (status == 200 && data?.success == true) {
 
@@ -150,6 +151,49 @@ export function DeleteCategory(dataP:ICategory) {
             })
           );
             dispatch(deleteCategoryAM(data?.data));
+        } else {
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 3,
+              message:
+                data?.message || "Something wen't wrong contact support",
+            })
+          );
+        }
+      } catch (e) {
+        dispatch(loadingAction(false));
+        dispatch(
+          messageAction({
+            type: 3,
+            message: e as string,
+          })
+        );
+      }
+    })();
+  };
+}
+
+export function GetDesktop() {
+  return function (dispatch: any, getState: any): any {
+
+    (async () => {
+ 
+      try {
+        dispatch(loadingAction(true));
+         const { status, data }: any = await repository
+          .GetDesktop("")
+          .then((x) => x);
+        if (status == 200 && data?.success == true) {
+
+          dispatch(loadingAction(false));
+          dispatch(
+            messageAction({
+              type: 1,
+              message: data?.message,
+            })
+          );
+               dispatch(setHomeAM(data?.data));
         } else {
           dispatch(loadingAction(false));
           dispatch(

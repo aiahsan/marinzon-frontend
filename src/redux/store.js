@@ -15,9 +15,11 @@ import * as Message  from './reducers/messsage/idnex';
  import * as Cart  from './reducers/Cart/idnex';
  import * as ECoupons  from './reducers/ECoupons/idnex';
  import * as Address  from './reducers/Address/idnex';
+ import * as _Count  from './reducers/Count/idnex';
 
  import * as BookingReview  from './reducers/BookingReview/idnex'; import { combineReducers } from 'redux';
 import thunk from 'redux-thunk'
+import * as Home from './reducers/Home/idnex';
  
  const rootReducer = combineReducers({
     User:User.userReducer,
@@ -37,6 +39,8 @@ import thunk from 'redux-thunk'
     Cart:Cart.CartReducer,
     ECoupons:ECoupons.ECouponsReducer,
     Address:Address.AddressReducer,
+    Home:Home.HomeReducer,
+    Count:_Count.countReducer
 
    });
 
